@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="28" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
+  <image source="../../../Unity_CSG/Build 5-20-15/Assets/tiled/Tileset.png" width="128" height="128"/>
+  <tile id="1">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="2">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="3">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="12">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="Base" tilewidth="32" tileheight="32">
+  <image source="bkg_base_tileset.png" width="480" height="192"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="64" height="28">
+  <data encoding="base64" compression="zlib">
+   eJzt0sEJgEAMBdGwWtpqA6sNqP3X4KQHwYXMYeBfE16PiI126sV2o0EHnQX3Shfd9BTcef8MDv/aef8MDvWvf/3rX//617/+9a9//etf//rXv/71r3/961//+v/af/5jKVqjF5dBL7w=
+  </data>
+ </layer>
+</map>
