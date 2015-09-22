@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="bkg_arctic_tileset" tilewidth="32" tileheight="32">
+  <image source="bkg_arctic_tileset.png" width="256" height="192"/>
+  <tile id="9">
+   <objectgroup draworder="index">
+    <object id="0" x="1" y="0" width="32" height="33"/>
+    <object id="0" x="0" y="-0.333333" width="33" height="33.3333"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt3DFqw1AUBVHVabX/vYZ05lYBE+TzMwdUa65e48rXlSRJkiRJkiRJkiRJkiRJkpN9HfjI9P6l79H7l75H71/6Hr1/6Xv0/qXv0fuXvkfvX/oevX/pe/T+pe/R+5e+R+9f+h69f+l79P6l79H7l75H71/6Hr1/6Xv0/qXv0fuXvkfvf3Vf/h69/1X3+Dz6Hr1/6Xv0/qXv0fuXvkfvX/oevX/pe/T+pe/R+5e+R+9f+h69f+l79P6l79H7l75H71/6Hr1/6Xv0/qXv0fuXvkfvX/oevX/pe/T+pe/R+5e+R+9f+h69f/3suZ+OeMOJ95D9tl/5/5Cn3/+uv7jHk9+ke3zWTU64x2nPKe7L/m2SJEmSJEmSJEmSJEmSJPm/vgGAygmE
+  </data>
+ </layer>
+</map>
