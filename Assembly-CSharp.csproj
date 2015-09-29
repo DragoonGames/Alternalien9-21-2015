@@ -49,6 +49,7 @@
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
+     <Compile Include="Assets\Scripts\CeilingWalls.cs" />
      <Compile Include="Assets\Scripts\CloudHit.cs" />
      <Compile Include="Assets\Scripts\CloudKill.cs" />
      <Compile Include="Assets\Scripts\CloudMovement.cs" />

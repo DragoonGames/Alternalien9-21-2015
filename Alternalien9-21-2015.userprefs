@@ -1,13 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Characters\SlimeMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlimeMovement.cs">
     <Files>
-      <File FileName="Assets\Characters\SlimeMovement.cs" Line="69" Column="4" />
-      <File FileName="Assets\Characters\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Characters\LeftFacingWall.cs" Line="1" Column="1" />
-      <File FileName="Assets\Characters\CloudHit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Characters\CloudMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Characters\RightFacingWalls.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TextBoxVisibility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CloudKill.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CloudHit.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CloudMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\JumpHit.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\JumpKill.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SlimeMovement.cs" Line="57" Column="12" />
+      <File FileName="Assets\Scripts\LeftFacingWall.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -49,10 +49,10 @@ public class SlimeMovement : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.RightArrow) && isLeft) {
 				transform.Rotate (0, 0, 270);
 				print ("Upside Down");
-				Physics2D.gravity = Vector3.zero;
 				//GetComponent<Rigidbody2D>().useGravity = false;
 				isLeft = false;
 				isUpsideDown = true;
+				Physics2D.gravity = Vector3.zero;
 			}
 			//Detach from left Wall
 			if (Input.GetKeyDown (KeyCode.DownArrow) && isLeft) {
