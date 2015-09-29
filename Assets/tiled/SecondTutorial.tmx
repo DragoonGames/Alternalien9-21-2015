@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="85" height="35" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
+  <image source="Tileset.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="Arctic" tilewidth="32" tileheight="32">
+  <image source="bkg_arctic_tileset.png" width="256" height="192"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="85" height="35">
+  <data encoding="base64" compression="zlib">
+   eJzt2cEKgzAQANElzf9/c5uDh4JpSxh1u86D3GVYlqgtIh4e7LTX6SFSD5vSbMqzKe+spmNvz/Z5Nc4pz6Y8m/JsOt/1q/veprxsTT/NzOp74tm2phmepYpsc1qBTXk2XTfb/Tbl2ZRnU97sLuXdap1z+o74JmlTXvWme3N39B6r3vQKNuXZlGdT3q/30yvuqt++pWb9F/vPc5r1uW3KsynPpjyb8mzKG89F//+9+xk9n9fSBCo=
+  </data>
+ </layer>
+</map>
