@@ -3,9 +3,12 @@ using System.Collections;
 
 public class ControlScript : MonoBehaviour {
 	public GameObject[] aliens;
+	public GameObject[] accessCards;
+	public int accessCardsToGet;
 	public int lockedAliens = 0;
 	private int activeAlien = 0;
 	private int alienCap;
+	public GameObject[] exitGateway;
 
 	void SetActiveAlien() {
 		foreach(GameObject alien in aliens)
@@ -31,8 +34,23 @@ public class ControlScript : MonoBehaviour {
 			activeAlien %= alienCap;
 			SetActiveAlien();
 		}
+		if (accessCardsToGet == 0) {
+			foreach (GameObject val in exitGateway)
+			         Destroy (val);
+		}
 	}
 
+	void UnlockExit()
+	{
+		if (GameObject.FindWithTag("Card") == null) {
+			accessCardsToGet--;
+		}
+		/*foreach (GameObject val in accessCards) {
+			if (Destroy(val))
+				accessCardsToGet--;
+		}
+		*/
+	}
 	void UnlockAliens() {
 		alienCap = aliens.Length;
 	}

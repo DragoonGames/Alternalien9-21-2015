@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="98" height="37" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="101" height="44" tilewidth="32" tileheight="32" nextobjectid="1">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
   <image source="Tileset.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="17" name="Arctic" tilewidth="32" tileheight="32">
   <image source="bkg_arctic_tileset.png" width="256" height="192"/>
  </tileset>
- <layer name="Tile Layer 1" width="98" height="37">
+ <layer name="Tile Layer 1" width="101" height="44">
   <data encoding="base64" compression="zlib">
-   eJzt2kEOgyAUANEf6v3P3LjookmpQCjOp/MSlkbNBFFiiYiHY9oog8ccobsdYQcCOzDYgWFVh9raVRacOwPnA4Md1qo9F+zAYIfv312r1i87MNA6jOwJXO0XZPDqkPX6d0GbD//KDgx2GNeylrU+3+3AYAcGOzDU3lt9j13L+fBu5trbww4Mu3cg7OG12L1DFnZgsAODHX6jd/++9fvhjvXt6l52+gck83zIet2f2IHBDgx2YLADgx0Y7MBgB4bzXmb/u+XoH2eDJ7xlBN0=
+   eJzt28sOgjAUANEG+f9vVhYmsgBKoXTudU7SvWTsC+NUSnk5MGP6jLmIZC42obEJj014nmqy7Ftb+5nWnCc8NnnW1nrxO2zCY5P97+6I/c4mPLQmNevt2fcU0XybZHiWLGjzRDYhskm7mr2vZQ+wCY9NeGwyxt66t3UW9mw8jvNkrde+fYZNeLI3ob1frJG9SUQ24bEJj036avntofZ+EmFvzCL6PIl4rjoSvUlGNuGxCY9NeGzCYxOelvvJnWfOo7PsP96ZyPOE+rl6swmPTXhswmMTHpvw2IRnee67//PhuH7fewNoWAWV
   </data>
  </layer>
 </map>
