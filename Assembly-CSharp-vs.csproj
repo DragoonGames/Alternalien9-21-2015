@@ -54,8 +54,10 @@
      <Compile Include="Assets\Scripts\CloudKill.cs" />
      <Compile Include="Assets\Scripts\CloudMovement.cs" />
      <Compile Include="Assets\Scripts\ControlScript.cs" />
+     <Compile Include="Assets\Scripts\CrushAnimator.cs" />
      <Compile Include="Assets\Scripts\CrushHit.cs" />
      <Compile Include="Assets\Scripts\CrushKill.cs" />
+     <Compile Include="Assets\Scripts\CrushMovement.cs" />
      <Compile Include="Assets\Scripts\JumpHit.cs" />
      <Compile Include="Assets\Scripts\JumpKill.cs" />
      <Compile Include="Assets\Scripts\LeftFacingWall.cs" />

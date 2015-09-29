@@ -8,10 +8,20 @@ public class SlimeMovement : MonoBehaviour
 	private bool isActive = false;
 	public GameObject[] leftWalls;
 	public GameObject[] rightWalls;
-
+	enum SlimeDirection
+	{
+		isLeft,
+		isRight,
+		isUpsideDown,
+		isNormal
+	};
 	bool isLeft = false;
 	bool isUpsideDown = false;
 	float move = 0;
+
+	void Start(){
+		SlimeDirection slimeState = SlimeDirection.isNormal;
+	}
 	void Jump() {
 		GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpSpeed);
 	}

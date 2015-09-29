@@ -22,7 +22,10 @@ public class TemperMovement : MonoBehaviour
 
     void Jump()
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+		//GetComponent<Rigidbody2D>().AddForce(Vector3.right * 35 + Vector3.up * 35);
+		print ("Jump");
+		GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.right * 150 + Vector3.up * 150);
+		//fireClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
     }
 
     void LaunchFireIceBall()
@@ -130,8 +133,14 @@ public class TemperMovement : MonoBehaviour
     {
         if (isActive)
         {
-            float move = Input.GetAxis("Horizontal");
+            /*float move = Input.GetAxis("Horizontal");
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			*/
+
+			float horizontal = Input.GetAxis ("Horizontal");
+			float vertical = Input.GetAxis ("Vertical");
+			
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (horizontal * maxSpeed, vertical * maxSpeed);
 
             if (Input.GetButtonDown("Jump"))
                 Jump();
