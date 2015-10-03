@@ -26,7 +26,7 @@ public class CrushMovement : MonoBehaviour {
 	public Animator myAnimator;
 
 	void Start(){
-		myCrusherState = crusher.idleRight;
+		//myCrusherState = crusher.idleRight;
 	}
 	void Jump()
 	{
@@ -74,7 +74,7 @@ public class CrushMovement : MonoBehaviour {
 			}
 			CheckDirection();
 
-			myAnimator.SetBool("IsGrounded", myCrusherState);
+			//myAnimator.SetBool("IsGrounded", myCrusherState);
 		}
 	}
 	void SetActive()
