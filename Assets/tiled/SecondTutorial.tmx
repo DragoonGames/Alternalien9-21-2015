@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="101" height="44" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="101" height="44" tilewidth="32" tileheight="32" nextobjectid="21">
  <tileset firstgid="1" name="Tileset" tilewidth="32" tileheight="32">
   <image source="Tileset.png" width="128" height="128"/>
  </tileset>
@@ -11,4 +11,26 @@
    eJzt28sOgjAUANEG+f9vVhYmsgBKoXTudU7SvWTsC+NUSnk5MGP6jLmIZC42obEJj014nmqy7Ftb+5nWnCc8NnnW1nrxO2zCY5P97+6I/c4mPLQmNevt2fcU0XybZHiWLGjzRDYhskm7mr2vZQ+wCY9NeGwyxt66t3UW9mw8jvNkrde+fYZNeLI3ob1frJG9SUQ24bEJj036avntofZ+EmFvzCL6PIl4rjoSvUlGNuGxCY9NeGzCYxOelvvJnWfOo7PsP96ZyPOE+rl6swmPTXhswmMTHpvw2IRnee67//PhuH7fewNoWAWV
   </data>
  </layer>
+ <objectgroup name="Collision">
+  <object id="1" x="4" y="0" width="3228" height="32"/>
+  <object id="2" x="799.636" y="160.242" width="225.697" height="30.303"/>
+  <object id="3" x="1118.67" y="351.515" width="672.667" height="33.3333"/>
+  <object id="4" x="-3.0303" y="30.6667" width="33.3333" height="1372.36"/>
+  <object id="5" x="2048.85" y="288" width="255.818" height="32"/>
+  <object id="6" x="3200" y="28.6667" width="33.3333" height="1380.42"/>
+  <object id="7" x="30" y="1375.76" width="3170.67" height="33.3333"/>
+  <object id="8" x="31.0303" y="381.818" width="161.636" height="34.8485"/>
+  <object id="9" x="31.697" y="1120.18" width="512.303" height="33.3333"/>
+  <object id="10" x="30" y="863.939" width="386" height="33.3333"/>
+  <object id="11" x="2911.33" y="224.242" width="289.333" height="30.4242"/>
+  <object id="12" x="2976" y="574.727" width="223.697" height="33.3333"/>
+  <object id="13" x="992" y="1118" width="608" height="35.3333"/>
+  <object id="14" x="1503.03" y="896.97" width="256.303" height="30.3636"/>
+  <object id="15" x="2496" y="478.788" width="319.152" height="32.5455"/>
+  <object id="16" x="1760.97" y="702" width="254.545" height="34.3636"/>
+  <object id="17" x="2143.45" y="640.727" width="321.212" height="30.303"/>
+  <object id="18" x="2784.85" y="830" width="415.152" height="34"/>
+  <object id="19" x="32.3636" y="608.788" width="287.879" height="30.303"/>
+  <object id="20" x="1217.33" y="1153.33" width="28.6667" height="224"/>
+ </objectgroup>
 </map>
