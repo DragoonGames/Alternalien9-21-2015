@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\JumpKill.cs" />
      <Compile Include="Assets\Scripts\LeftFacingWall.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\RevisedSlimeMovement.cs" />
      <Compile Include="Assets\Scripts\RightFacingWalls.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SlimeMovement.cs" />
