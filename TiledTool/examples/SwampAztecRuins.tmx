@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="57" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Lakecubes" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/Lakecubes.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="bkg_jungle_tileset" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/bkg_jungle_tileset.png" width="544" height="96"/>
+ </tileset>
+ <tileset firstgid="53" name="bkg_desert_tileset" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/bkg_desert_tileset.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="69" name="cage" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/cage.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="73" name="TreeCave" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/TreeCave.png" width="256" height="192"/>
+ </tileset>
+ <tileset firstgid="121" name="HugeDeadTree" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/HugeDeadTree.png" width="64" height="256"/>
+ </tileset>
+ <tileset firstgid="137" name="Dead Swamp Tree Sideways" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/Dead Swamp Tree Sideways.png" width="544" height="96"/>
+ </tileset>
+ <tileset firstgid="188" name="DeadBushes.fw" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/DeadBushes.fw.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="204" name="Dead Swamp Tree Sideways 2" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/Dead Swamp Tree Sideways 2.png" width="96" height="544"/>
+ </tileset>
+ <tileset firstgid="255" name="junglecrate" tilewidth="32" tileheight="32">
+  <image source="Jungle Tiled/junglecrate.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt0SEOgEAQBEHQ/P+/OBwOMi2qkk7O3uxxAAAAAAAAAAAAACXXy5sGN2lxDwAAAACAd6eeCtYblCpYb1CqYL1BqYL1BqUK1huUKlhvUKpgvUGpgvUGpb6w/oMkSZL0ZzfyhwVE
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt0bsNwlAQBMCXkwAdAB1gif5LwxYZn8DGz7eCGWnzu93WAAAAAAAAAAAAgMl+zGHjHMPuXHJPL6cx541zCbtzyT292MMe0/+3mbGHPSrY47/3GNryPYZON73bYze3yJVc2+PPrTJ3h0+7rJ1nVXt828+vJEV1DylJUd1DSlJU95CSFNU9pCRFdQ8pSVHdQ0pSVPeQEgAAAAAAAF7dAT0itZo=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJwzAQRUE1YKcD2/1XGUFuOSvoBWbgF7D7xgAAAAAAAAAAaDnmztB223n7a+6au0Pbbeftz9Djmx56rO7Bhx4terTo0aJHix4terQUejw/vvGfrPilHuvo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4terTo0aJHix4tK375BhQIoC0=
+  </data>
+ </layer>
+ <layer name="Tile Layer 6" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJztmrlOxDAURSMoafmF+Wz2rWPfCqAC/gAEAoFAIBAIBIIebjFYmchb4ufYCfdIp/F47OfnLRMoCkIIIYQQQgghhBBCCOkXk8KSMMY9HRvqqkf8mDAoPR+mfsgo5dxIn1EmuzYfP8L1bNj2hO/ar7t3pOZDYvw+ffwpVc9GrvMhOf6m8/ajUaqeiSZ3Rqiu+Ygx/rpzoutD105IPR1t3Rm+z8Exx1/nHnApVa9KW3vC5zm4jfG3ceeE4LonYtwh5TIyCucjL3I6r8gog6Ep+hpU9PlOboTGV82BT06a9FHuy9S3K65qeW64cmnLsau8MJQ1jVPXXp11EGOdSGPLYbnclXddXVNZ0zhDrbaXI668mXJs+9zne03idJ03pv517eS6R2zr3fR5nf1RFDLz4Wrf5yzVnXldR5cHW90Y69B2Frnuj5hxETnO4HnqIIjiAl6mDoIoruB16iCI4gbepg6CKO7gfeogiOIBPqYOgiie4HPqIIjiBb6mDoIo3uB76iD+Ab6/wT/gZ8xASC2+4HfqIISReB8U871S395XtTWekDlhzkkfmILTcAbOwjk4DxfgIlyCy3BlWN/1Xt/3s66ut9hxr8I1uA434CbcgttwB+7CPbgfOY4+Umfu2ryDpDiAh/BIsM1QpMbXxb/LHcMTeJo6kBJN94DUM7BEva6tA5IfUmsxV7oWd9fi1dGHMYRg+5+tNvv9L8QYt6nNuuUhfZF2SJH/X8UD0f0=
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJztzjEOggAQRcG9nMA9RBrQRvD8/MrabiOZSV7/qgAAAAAAAIBf3NOcHmlpfqFqTVt6plfzC1XvtKcjfZpfAACu4paG7gm+xjR1TwAAAAAAAAAAAAAAwJ87ARepBjE=
+  </data>
+ </layer>
+ <layer name="Tile Layer 5" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt0bENADAIA0GkjMD+u2aBFKFAUNxJX7l0BAAAAAAAAAAAADDpPPrZ6OGPXbIYAAAAAAAAAAAAAAB7Xbh8ASE=
+  </data>
+ </layer>
+ <layer name="Tile Layer 7" width="100" height="57">
+  <data encoding="base64" compression="zlib">
+   eJzt2EkKw0AMRNFcO/M8HDsC7ZWCFEJO/oPeFWpjSV54tQKgWMfZNObUOv9qG2fXmFPrdHPNkZKrMvs4B+EeV06t0801R0quyhzjnIR7XDm1TjfXHCm5KnOOcxHuceXUOt1cc6Tkqsw1zk24x5VT63RzzZGSqzL3OA/hHldOrdPNNUdKrso847yEe1w5tU431xwpuSrDfiTXHH3bD/d+LLUf7McsU/rBfqQp/WA/0pR+sB9pSj/YjzSlH+xHmtIP9iNN6Qf7kab0g/1IU/rR/f+Kfnj249e/V645Ut6TYz9czzP1/+4nzud2zORS3+NEvEsAAAAAAAAAAAAAAAAAAAAAAIBleQPiCrE1
+  </data>
+ </layer>
+</map>

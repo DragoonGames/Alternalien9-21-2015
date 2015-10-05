@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="32" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="bkg_desert_tileset" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/bkg_desert_tileset.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="17" name="Sandplatform.fw" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/Sandplatform.fw.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="33" name="DeadTree.fw" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/DeadTree.fw.png" width="64" height="256"/>
+ </tileset>
+ <tileset firstgid="49" name="DeadBushes.fw" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/DeadBushes.fw.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="65" name="TombWindow" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/TombWindow.png" width="256" height="192"/>
+ </tileset>
+ <tileset firstgid="113" name="Tombdoor" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/Tombdoor.png" width="256" height="192"/>
+ </tileset>
+ <tileset firstgid="161" name="BigDrawBridge" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/BigDrawBridge.png" width="256" height="192"/>
+ </tileset>
+ <tileset firstgid="209" name="sandspikes" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/sandspikes.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="210" name="vase" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/vase.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="211" name="sandbox" tilewidth="32" tileheight="32">
+  <image source="DesertTiled/sandbox.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Tile Layer 2" width="50" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztz0ENACAMwMAF/6IxwaMs1+QEdGZP53M+Wny0+Gjx0eKjxUeLjxYfLT5afLT4aPHR4qNl24f0uguqJQqB
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="50" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2cEJACAMBMHzI6T/htUeBDeyAylgv5dKMptf7Rvpb8QOEjtY7GCxg8UOFjtY7GCxg8UOFjtY7GCxg8UOFjtYfuo4m/vr3f/G32AB8CACoQ==
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="50" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlbsOgzAQBK9BuIoEJIEE8vj/r8xS0FgGrMiHuNOONAVYBk21IoQQQo6mgS3s4BXe4B32cChwrv3/hQd8whFO8AXf8AO/Bc730P4+IYQQHZadmYl3JrU9a/dzdlBzZ7d2JvUuRntHNXYwwPrPu2ciiI+WID5agvhoiTustqQ6LLasdVhr2eqw1LLXYaUlp8NCS27HES1V9HwxrrcOD/wAgNUXbA==
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="50" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1U0KwjAUReHsxtbWaq313yotdCI4Edz/UjzgpASHD14o94MDyexmlBDkn957gJE+zOMtT3p5jzDwpo/3CBERkYj+WRGRtAw0eo8woP9F5GdBmfcIAzktvUcYKKic3GvaUkM7amlPBzpG55SsqJrcT3SmC13pRh3d6RGdU7KmjfcImbUvih4Lsw==
+  </data>
+ </layer>
+ <layer name="Tile Layer 5" width="50" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzzEOgzAQRFHuf4ykI3QJFYQK6IiEfSGmieQCF8CiReI/6UsuthgXBe7uoZ7eIwyU6qUq7yEG3uqjau8hBzWqVV/VOW85qleDGr2HGJjUb8N9yLwBAOeL3gMMxKRUSLI2r7TXf1/uHwAAAACuawGHORsF
+  </data>
+ </layer>
+</map>
