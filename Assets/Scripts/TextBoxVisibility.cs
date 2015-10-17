@@ -15,6 +15,5 @@ public class TextBoxVisibility : MonoBehaviour {
     {
         OnTextBox.SetActive(true);
         OffTextBox.SetActive(false);
-        print("woo");
     }
 }

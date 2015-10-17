@@ -14,7 +14,6 @@ public class Visibiliy : MonoBehaviour
     {
         TextBox1.SetActive(false);
 	}
-	
 	// Update is called once per frame
 	void Update ()
     {
