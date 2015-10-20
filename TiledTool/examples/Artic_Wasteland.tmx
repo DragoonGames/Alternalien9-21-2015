@@ -24,9 +24,22 @@
  <tileset firstgid="1929" name="igloo" tilewidth="32" tileheight="32">
   <image source="Artic Tiled/igloo.png" width="195" height="150"/>
  </tileset>
+ <tileset firstgid="1953" name="mountain" tilewidth="32" tileheight="32">
+  <image source="Artic Tiled/mountain.png" width="375" height="315"/>
+ </tileset>
+ <layer name="Tile Layer 2" width="130" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0slyQVEUheGDAe//DJhqZpoYRZMMiLZKED2JCNFFguD3FFfds/6qb76r1jZGKaWUUrYV9BsTQtjv9CXKySLsH0UMcf2ClSXYPYkU0nhARr9gXY9snkUOeRTwhGf9gjUV2bqEF5RRQRU11NHQL1hRk51f0UIbHbyhix76GOgXXN2QfUcYY4Ip3vGBGT4xx5f+wNUt2HeJb6ywxgZb7PCDPX71B67uj30POOKEf5xxue0eMMYDL3wBpy9VSil1b10BJGc74A==
+  </data>
+ </layer>
  <layer name="Tile Layer 1" width="130" height="15">
   <data encoding="base64" compression="zlib">
-   eJztl0kOwjAMRbOr2NBFCyxAnIJbAhKDmMR0VT6LSqhkcGOnY770NqWkjv0UilIxMcNL1nQBMY0nU9GDviXTEOI7MfTU3VPdPHXPz8GIwCR8yb2Jq+ehPDDNnOLBGKREloHq73p+e8uZhUQNpvUlPYgu6FNl9lwPfGct7YGPC21/55CYm+0e6fOg6qylfxequtDE+eiToo51otQGbJP/z6h1umbjs+/csibluq6Ocnw9oLjQFQ++2WH2e3AAR4YHunD2PQeL0v3U86BKzzkeSLjQhpww9zO4gCu4CZwHrnOZsl7hgMsDytqhPbC5wPGzztwx9wd4ghd4Gzyg/L+2sTLAXcN2nfpcCQ9SgR5J9dSnt9Q9cntlqlWi/5H6mIJZZPB8AHtbQb0=
+   eJztl9kKwjAQRfNWfLEPdXlQ/Ap/Ulxw37dP9YIUNaTpJJm0tc2Fg1BqOpk5xCpESEjzkpRdQEjpSUTwoG5JFPj4Tgg9RfdUNU/V8zugRaDrv+TaJK/nvjzImjnFgzaIiYw81f/v+e6tyyw4ashan9OD4II6JrN39cB21twe2LhQ9XcOjrnp7uE+D0xnzf27YOpCGecjNdNIiBmYg0X0rmMSfUhjWmfebGz23dGsSbmuqkOOrQcUF6rqwRJzXoE12IBt9OuAiwequOx7AIbS/dTzwKTnLh5wuFB0dpjxHhzAEZzAmdGDRPqU1zBZL3UgzwPK2r490Lng4qevXDDjK7iBO3iAJ9EDyv9rHeMMXNfQXac+l8ODmKFHXD216S11j669yqqVo/+B4uiBfqDxvAB/b0yS
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="130" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAA4DceeAAB
   </data>
  </layer>
 </map>
