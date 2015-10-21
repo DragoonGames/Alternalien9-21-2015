@@ -10,9 +10,11 @@ public class CrushMovement : MonoBehaviour {
 	public float jumpSpeed = 100f;
 	private bool isActive = false;
     bool isGrounded = true;
+	bool isPunching = false;
 
-    public float jumpRate = 0.25F;
-    private float nextJump = 0.0F;
+    private float jumpRate = 0.25F;
+    public float nextJump = 0.0F;
+	public float nextPunch = 0.0F;
 
     public enum crusher
 	{
@@ -25,94 +27,103 @@ public class CrushMovement : MonoBehaviour {
 		punchLeft,
 		punchRight
 	}
-	string myCrusherState;
-	//public Animation idleLeftAnim, idleRightAnim, walkLeftAnim, walkRightAnim, jumpLeftAnim, jumpRightAnim, punchLeftAnim, punchRightAnim;
-	public Sprite leftSprite, rightSprite;
-
     public Animator anim;
-    int jumpHash = Animator.StringToHash("Jump");
-    int runStateHash = Animator.StringToHash("Run");
-    int punchHash = Animator.StringToHash("Punch");
 
 	void Start(){
         anim = GetComponent<Animator>();
-        anim.enabled = true;
+		anim.SetBool ("IsGrounded", isGrounded);
+		anim.SetBool ("IsFacingLeft", isFacingLeft);
+		anim.SetBool ("IsFacingRight", isFacingRight);
 	}
-	void Jump()
+	IEnumerator Jump()
 	{
-        print("Jump");
+		isGrounded = false;
+		anim.SetBool("IsGrounded", isGrounded);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-        isGrounded = false;
+
+		yield return new WaitForSeconds(nextJump);
+
+		isGrounded = true;
+		anim.SetBool("IsGrounded", isGrounded);
     }
-    void CheckDirection()
+    void CheckDirection(float moveSpeed)
 	{
-		if (isFacingRight)
+		if (isFacingRight && !isPunching)
 		{
+			anim.SetBool("IsFacingRight", isFacingRight);
+			anim.SetBool("IsFacingLeft", isFacingLeft);
+
 			if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
 			{
-				Debug.Log("Facing Left");
 				isFacingLeft = true;
 				isFacingRight = false;
 				//Start of Changing Sprites
-				this.gameObject.GetComponent<SpriteRenderer>().sprite = leftSprite;
+				anim.SetFloat("speed", moveSpeed);
+				anim.SetBool("IsFacingRight", isFacingRight);
+				anim.SetBool("IsFacingLeft", isFacingLeft);
 			}
 			
 		}
-		if (isFacingLeft)
+		if (isFacingLeft && !isPunching)
 		{
+			anim.SetBool("IsFacingLeft", isFacingLeft);
+			anim.SetBool("IsFacingRight", isFacingRight);
+
 			if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
 			{
-				Debug.Log("Facing Right");
 				isFacingLeft = false;
 				isFacingRight = true;
-				this.gameObject.GetComponent<SpriteRenderer>().sprite = rightSprite;
+				//Start of Changing Sprites
+				anim.SetFloat("speed", moveSpeed);
+				anim.SetBool("IsFacingRight", isFacingRight);
+				anim.SetBool("IsFacingLeft", isFacingLeft);
 			}
 		}
 	}
     void Update()
 	{
-        float moveAnim = Input.GetAxis("Vertical");
-        anim.SetFloat("speed", moveAnim);
 		if (isActive)
 		{
+			//CheckDirection(speed);
 			float move = Input.GetAxis("Horizontal");
+			float speed =(move * maxSpeed);
+			anim.SetFloat("speed", speed);
 			GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
-            //Check for One Jump
-            //Calls jump if button pressed, and is Grounded
-            if (Input.GetButton("Jump") && isGrounded)
-            {
-                nextJump = (Time.time + jumpRate) *1.25f;
-                anim.SetTrigger(jumpHash);
-                Jump();
-            }
-            //When timer runs out, jump can be called again
-            if (Time.time > nextJump && !isGrounded)
-            {
-                nextJump = (Time.time + jumpRate) * 1.25f;
-                isGrounded = true;
-            }
-            if(Input.GetKeyDown(KeyCode.F))
-            {
-                anim.SetTrigger(punchHash);
-            }
-			CheckDirection();
+			CheckDirection(speed);
+			if (Input.GetKeyDown(KeyCode.F) && !isPunching)
+			{
+				StartCoroutine(Punch());
+			}
+			//Check for One Jump
+			//Calls jump if button pressed, and is Grounded
+			if (Input.GetButton("Jump") && isGrounded)
+			{
+				StartCoroutine(Jump());
+			}
+			CheckDirection(speed);
 		}
+	}
+	IEnumerator Punch()
+	{
+		isPunching = true;
+		anim.SetBool("IsPunching", isPunching);
+		yield return new WaitForSeconds (nextPunch);
+		isPunching = false;
+		anim.SetBool("IsPunching", isPunching);
+
 	}
     void OnCollisionStay2D(Collision2D c)
     {
         if (c.gameObject.tag == "isBreakable")
         {
-            print("isBreakable Stay");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //Punch mode
-                print("Punch Stay");
-                anim.SetTrigger(punchHash);
+				anim.SetBool("IsPunching", isPunching);
                 Destroy(c.gameObject);
             }
         }
-        
     }
     void OnCollisionEnter2D(Collision2D c)
     {
@@ -122,12 +133,9 @@ public class CrushMovement : MonoBehaviour {
         }
         if (c.gameObject.tag == "isBreakable")
         {
-            print("isBreakable Enter");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //Punch mode
-                print("Punch Enter");
-                anim.SetTrigger(punchHash);
                 Destroy(c.gameObject);
             }
         }

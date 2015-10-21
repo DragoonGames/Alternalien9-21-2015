@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 
 public class Visibiliy : MonoBehaviour 
-{
+{/*
     public GameObject TextBox1;
     public Collider2D collider;
 
@@ -31,5 +31,5 @@ public class Visibiliy : MonoBehaviour
     {
         TextBox1.SetActive(true);
     }
-
+*/
 }

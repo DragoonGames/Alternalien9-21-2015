@@ -50,6 +50,7 @@
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\CeilingWalls.cs" />
+     <Compile Include="Assets\Scripts\ClearPrefs.cs" />
      <Compile Include="Assets\Scripts\CloudHit.cs" />
      <Compile Include="Assets\Scripts\CloudKill.cs" />
      <Compile Include="Assets\Scripts\CloudMovement.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Scripts\JumpHit.cs" />
      <Compile Include="Assets\Scripts\JumpKill.cs" />
      <Compile Include="Assets\Scripts\LeftFacingWall.cs" />
+     <Compile Include="Assets\Scripts\LevelUnlock.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RevisedSlimeMovement.cs" />
      <Compile Include="Assets\Scripts\RightFacingWalls.cs" />
