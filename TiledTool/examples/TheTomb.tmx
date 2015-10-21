@@ -30,6 +30,9 @@
  <tileset firstgid="211" name="sandbox" tilewidth="32" tileheight="32">
   <image source="DesertTiled/sandbox.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="212" name="CeilingSandSpikes" tilewidth="32" tileheight="32">
+  <image source="E:/Matc/Sophomore 2015-2016/Fall/Alternalien9-21-2015/TiledTool/examples/DesertTiled/CeilingSandSpikes.png" width="32" height="32"/>
+ </tileset>
  <layer name="Tile Layer 2" width="50" height="32">
   <data encoding="base64" compression="zlib">
    eJztz0ENACAMwMAF/6IxwaMs1+QEdGZP53M+Wny0+Gjx0eKjxUeLjxYfLT5afLT4aPHR4qNl24f0uguqJQqB
@@ -42,7 +45,7 @@
  </layer>
  <layer name="Tile Layer 3" width="50" height="32">
   <data encoding="base64" compression="zlib">
-   eJztlbsOgzAQBK9BuIoEJIEE8vj/r8xS0FgGrMiHuNOONAVYBk21IoQQQo6mgS3s4BXe4B32cChwrv3/hQd8whFO8AXf8AO/Bc730P4+IYQQHZadmYl3JrU9a/dzdlBzZ7d2JvUuRntHNXYwwPrPu2ciiI+WID5agvhoiTustqQ6LLasdVhr2eqw1LLXYaUlp8NCS27HES1V9HwxrrcOD/wAgNUXbA==
+   eJztlcsOgjAQRWdj7MrEJyqC/jp/6iWRzaRAlZY4k3uSs4CGkrO6IoQQQtZmDw/wCE/wDC+wgtcM57n/333U99/gHdbwARvYwid8ZTif49v7h47U+wkhhJRh2JkevUOxbRr7PmUHS+7s1A7F3mlK7+jSnY0R4PbHb/+JID5agvhoCeKjRXdYbYl1WGwZ67DWMtVhqWWuw0pLSoeFltSONVo26nlnXG8dHngDjkYZig==
   </data>
  </layer>
  <layer name="Tile Layer 4" width="50" height="32">
@@ -52,7 +55,7 @@
  </layer>
  <layer name="Tile Layer 5" width="50" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzzEOgzAQRFHuf4ykI3QJFYQK6IiEfSGmieQCF8CiReI/6UsuthgXBe7uoZ7eIwyU6qUq7yEG3uqjau8hBzWqVV/VOW85qleDGr2HGJjUb8N9yLwBAOeL3gMMxKRUSLI2r7TXf1/uHwAAAACuawGHORsF
+   eJztz7kOQEAUhWHv/xbo0KGyVOhIDA/kFCRTkFiuXMv5kj9RTGYOx6G/85CvPUJAgEIUaQ8REKMEpdpDLspQjgpUKm+5qkI1arSHCGhRd+C82fj+kvHmpN935/beT0TvNWgPEDBY2YyVtH6ls5Z9W/9BRERERETPNQG7bTu/
   </data>
  </layer>
 </map>
