@@ -46,8 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AddJumper.cs" />
+     <Compile Include="Assets\DeathScript.cs" />
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
+     <Compile Include="Assets\JumperMovement.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\CeilingWalls.cs" />
      <Compile Include="Assets\Scripts\ClearPrefs.cs" />
