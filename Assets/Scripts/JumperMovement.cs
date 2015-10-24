@@ -108,6 +108,13 @@ public class JumperMovement : MonoBehaviour {
             CheckDirection(speed);
         }
     }
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "isCardKey")
+        {
+            Destroy(c.gameObject);
+        }
+    }
     void SetActive()
     {
         isActive = true;
