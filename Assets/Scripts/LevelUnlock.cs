@@ -11,7 +11,7 @@ public class LevelUnlock : MonoBehaviour {
 		if (GUI.Button (new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 180) / 2, 100, 20), "Level 1")) {
 			Application.LoadLevel(levels[0]);
 		}
-		if (GUI.Button (new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 120) / 2, 100, 20), "Level 2")) {
+		if (GUI.Button (new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 130) / 2, 100, 20), "Level 2")) {
 			if (PlayerPrefs.HasKey("unlockLevel2")) {
 				print ("Has unlockLevel2 key");
 				//Application.LoadLevel (levels[1]);
@@ -21,7 +21,7 @@ public class LevelUnlock : MonoBehaviour {
 				label = true;
 			}
 		}
-		if (GUI.Button (new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 120) / 2, 100, 20), "Level 3")) {
+		if (GUI.Button (new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 80) / 2, 100, 20), "Level 3")) {
 			if (PlayerPrefs.HasKey("unlockLevel3")) {
 				print ("Has unlockLevel3 key");
 				//Application.LoadLevel (levels[2]);
@@ -33,7 +33,7 @@ public class LevelUnlock : MonoBehaviour {
 		}
 		if (label)
 		{
-			GUI.Label(new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 60) / 2, 140, 40), "This level is not\t\t  unlocked yet");
+			GUI.Label(new Rect ((mainCamera.pixelWidth - 100) / 2, (mainCamera.pixelHeight - 20) / 2, 140, 40), "This level is not\t\t  unlocked yet");
 		}
 	}
 }
