@@ -50,6 +50,7 @@
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\AddJumper.cs" />
+     <Compile Include="Assets\Scripts\CameraTracker.cs" />
      <Compile Include="Assets\Scripts\CeilingWalls.cs" />
      <Compile Include="Assets\Scripts\ClearPrefs.cs" />
      <Compile Include="Assets\Scripts\CloudHit.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\Scripts\RightFacingWalls.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SlimeMovement.cs" />
+     <Compile Include="Assets\Scripts\SmoothFollowCSharp.cs" />
      <Compile Include="Assets\Scripts\TemperMovement.cs" />
      <Compile Include="Assets\Scripts\TextBoxVisibility.cs" />
      <Compile Include="Assets\Scripts\TextVisibility.cs" />

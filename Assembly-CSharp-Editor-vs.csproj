@@ -77,6 +77,9 @@
      <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Imported\TestLevel.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/harmsene/Desktop/GitHub/Alternalien9-21-2015/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

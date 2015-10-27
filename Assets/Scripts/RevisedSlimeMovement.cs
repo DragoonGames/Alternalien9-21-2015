@@ -68,6 +68,15 @@ public class RevisedSlimeMovement : MonoBehaviour {
                     break;
             }
         }
+		if (slimeDir == SlimeDirection.isUpsideDown)
+		{
+			if (Input.GetKeyDown(KeyCode.DownArrow))
+			{
+				transform.Rotate(0, 0, 180);
+				print("Normal Side Up");
+				slimeDir = SlimeDirection.isNormal;
+			}
+		}
     }
     void SetActive()
     {
@@ -90,13 +99,17 @@ public class RevisedSlimeMovement : MonoBehaviour {
                     print("Left Side");
                     slimeDir = SlimeDirection.isLeft;
                 }
-                //Detach from Ceiling
-                else if (slimeDir == SlimeDirection.isUpsideDown)
-                {
-                    transform.Rotate(0, 0, 180);
-                    print("Normal Side Up");
-                    slimeDir = SlimeDirection.isNormal;
-                }
+				/*if (slimeDir == SlimeDirection.isUpsideDown)
+				{
+					print ("test1");
+					if (other.gameObject.tag == "LeftWallCurve"){
+						print ("test2");
+						transform.Rotate(0, 0, 180);
+						print("Normal Side Up");
+						slimeDir = SlimeDirection.isLeft;
+					}
+				}
+				*/
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -118,16 +131,45 @@ public class RevisedSlimeMovement : MonoBehaviour {
                     slimeDir = SlimeDirection.isUpsideDown;
                 }
             }
+			else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)){
+				//Detach from Ceiling
+				if (slimeDir == SlimeDirection.isUpsideDown)
+				{
+					if (Input.GetKeyDown(KeyCode.DownArrow))
+					{
+						transform.Rotate(0, 0, 180);
+						print("Normal Side Up");
+						slimeDir = SlimeDirection.isNormal;
+					}
+				}
+			}
         }
+		/*if (other.gameObject.tag == "LeftWallCurve") {
+			if (slimeDir == SlimeDirection.isUpsideDown) {
+				print ("test1");
+				transform.Rotate (0, 0, 180);
+				transform.position = new Vector2(other.gameObject.transform.position.x, other.gameObject.transform.position.y);
+				print ("Left Side Up");
+				slimeDir = SlimeDirection.isLeft;
+			}
+		}
+		*/
     }
-    /*void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        if (isUpsideDown)
+        if (slimeDir == SlimeDirection.isUpsideDown)
         {
-            transform.Rotate(0, 0, 180);
-            isUpsideDown = false;
-            Physics2D.gravity = new Vector2(0, -10);
+			if(other == null)
+			{
+				print("null");
+				if ((other.gameObject.tag != "Wall") && (other.gameObject.tag != "WallCurve") && (other.gameObject.tag != "LeftWallCurve") && (other.gameObject.tag != "RightWallCurve"))
+				{
+					print ("Trigger Exit");
+		            transform.Rotate(0, 0, 180);
+					slimeDir = SlimeDirection.isNormal;
+					Physics2D.gravity = new Vector3(0, -3, 0);
+				}
+			}
         }
     }
-    */
 }

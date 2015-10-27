@@ -1,71 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
-public class ControlScript : MonoBehaviour {
-	public GameObject[] aliens;
-    public GameObject[] accessCards;
-    //public List<GameObject> accessCardsList;
-	public int accessCardsToGet;
-	public int lockedAliens = 0;
-	private int activeAlien = 0;
-	private int alienCap;
-	public GameObject exitGateway;
+// Place the script in the Camera-Control group in the component menu
+//[AddComponentMenu("Camera-Control/Smooth Follow CSharp")]
 
-	void SetActiveAlien() {
-		foreach(GameObject alien in aliens)
-			alien.transform.SendMessage ("SetInactive");
-
-		aliens [activeAlien].SendMessage ("SetActive");
-		target = aliens [activeAlien].transform;
-	}
-
-	void Start () {
-		alienCap = aliens.Length - lockedAliens;
-		SetActiveAlien ();
-		target = firstTarget;
-        //accessCardsList.AddRange(accessCards);
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		if (Input.GetKeyDown(KeyCode.Q))
-        {
-			activeAlien++;
-			activeAlien %= alienCap;
-			SetActiveAlien();
-		}
-		if (Input.GetKeyDown (KeyCode.E))
-        {
-			activeAlien += alienCap-1; // (modulo friendly equivalent to --)
-			activeAlien %= alienCap;
-			SetActiveAlien();
-		}
-        UnlockExit();
-	}
-
-	void UnlockExit()
-	{
-        if (accessCardsToGet == 0)
-        {
-            if (exitGateway.gameObject != null)
-                Destroy(exitGateway);
-        }
-        accessCardsToGet = accessCards.Length;
-        for (int i=0; i < accessCards.Length; i++)
-        {
-            if (accessCards[i].gameObject == null)
-            {
-                accessCardsToGet--;
-            }
-        }
-		
-    }
-	void UnlockAliens() {
-		alienCap = aliens.Length;
-	}
-
+public class SmoothFollowCSharp : MonoBehaviour
+{
 	/*
      This camera smoothes out rotation around the y-axis and height.
      Horizontal Distance to the target is always fixed.
@@ -78,15 +18,14 @@ public class ControlScript : MonoBehaviour {
      */
 	
 	// The target we are following
-	public Transform firstTarget;
-	Transform target;
+	public Transform target;
 	// The distance in the x-z plane to the target
 	public float distance = 10.0f;
 	// the height we want the camera to be above the target
 	public float height = 5.0f;
 	// How much we 
-	public float heightDamping = 25.0f;
-	public float rotationDamping = 25.0f;
+	public float heightDamping = 2.0f;
+	public float rotationDamping = 3.0f;
 	
 	void  LateUpdate ()
 	{
