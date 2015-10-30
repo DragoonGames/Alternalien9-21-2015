@@ -12,7 +12,8 @@ public class ControlScript : MonoBehaviour {
 	private int alienCap;
 	public GameObject exitGateway;
 
-	void SetActiveAlien() {
+
+    void SetActiveAlien() {
 		foreach(GameObject alien in aliens)
 			alien.transform.SendMessage ("SetInactive");
 
@@ -81,12 +82,13 @@ public class ControlScript : MonoBehaviour {
 	public Transform firstTarget;
 	Transform target;
 	// The distance in the x-z plane to the target
-	public float distance = 10.0f;
+	public float distance = 100.0f;
 	// the height we want the camera to be above the target
-	public float height = 5.0f;
+	public float height = 25.0f;
 	// How much we 
 	public float heightDamping = 25.0f;
 	public float rotationDamping = 25.0f;
+    public float widthDamping = 25.0f;
 	
 	void  LateUpdate ()
 	{
@@ -95,13 +97,13 @@ public class ControlScript : MonoBehaviour {
 			return;
 		
 		// Calculate the current rotation angles
-		//float wantedRotationAngle = target.eulerAngles.y;
-		float wantedHeight = target.position.y + height;
+		// wantedRotationAngle = target.eulerAngles.y;
+		float wantedHeight = target.position.y - height;
 		//float currentRotationAngle = transform.eulerAngles.y;
 		float currentHeight = transform.position.y;
 		
 		// Damp the rotation around the y-axis
-		//currentRotationAngle = Mathf.LerpAngle (currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+	    //currentRotationAngle = Mathf.LerpAngle (currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
 		
 		// Damp the height
 		currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
