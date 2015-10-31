@@ -49,6 +49,7 @@
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\FuckSlimeTransport.cs" />
+     <Compile Include="Assets\GeyserBridgeBuilding.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\AddJumper.cs" />
      <Compile Include="Assets\Scripts\CameraTracker.cs" />
