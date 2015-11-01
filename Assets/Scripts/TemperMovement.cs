@@ -18,8 +18,8 @@ public class TemperMovement : MonoBehaviour
     bool fireMode = true;
     bool iceMode = false;
 
-    public Sprite leftSprite, rightSprite;
-
+    public Sprite leftFireSprite, rightFireSprite;
+    public Sprite leftIceSprite, rightIceSprite;
     void Jump()
     {
 		//GetComponent<Rigidbody2D>().AddForce(Vector3.right * 35 + Vector3.up * 35);
@@ -30,21 +30,10 @@ public class TemperMovement : MonoBehaviour
 
     void LaunchFireIceBall()
     {
-        /*Debug.Log("Fire Right");
-
-        Rigidbody2D fireClone;
-        fireClone = Instantiate(fireballRigid, transform.position, transform.rotation) as Rigidbody2D;
-        fireClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
-
-        Destroy(fireClone.gameObject, 15.0f);
-         */
-
         if (fireMode)
         {
             if (isFacingRight)
             {
-                Debug.Log("Fire Right");
-
                 Rigidbody2D fireClone;
                 fireClone = Instantiate(fireballRigid, transform.position, transform.rotation) as Rigidbody2D;
                 fireClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
@@ -53,8 +42,6 @@ public class TemperMovement : MonoBehaviour
             }
             else if (isFacingLeft)
             {
-                Debug.Log("Fire Left");
-
                 Rigidbody2D fireClone;
                 fireClone = Instantiate(fireballRigid, transform.position, transform.rotation) as Rigidbody2D;
                 fireClone.velocity = transform.TransformDirection(Vector3.left * 35 + Vector3.up * 35);
@@ -66,8 +53,6 @@ public class TemperMovement : MonoBehaviour
         {
             if (isFacingRight)
             {
-                Debug.Log("Ice Right");
-
                 Rigidbody2D iceClone;
                 iceClone = Instantiate(iceballRigid, transform.position, transform.rotation) as Rigidbody2D;
                 iceClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
@@ -76,8 +61,6 @@ public class TemperMovement : MonoBehaviour
             }
             else if (isFacingLeft)
             {
-                Debug.Log("Ice Left");
-
                 Rigidbody2D iceClone;
                 iceClone = Instantiate(iceballRigid, transform.position, transform.rotation) as Rigidbody2D;
                 iceClone.velocity = transform.TransformDirection(Vector3.left * 35 + Vector3.up * 35);
@@ -89,26 +72,50 @@ public class TemperMovement : MonoBehaviour
     }
     void CheckDirection()
     {
-        if (isFacingRight)
+        if (fireMode)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            if (isFacingRight)
             {
-                Debug.Log("Facing Left");
-                isFacingLeft = true;
-                isFacingRight = false;
-                //Start of Changing Sprites
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = leftSprite;
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                {
+                    isFacingLeft = true;
+                    isFacingRight = false;
+                    //Start of Changing Sprites
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = leftFireSprite;
+                }
+
             }
-            
-        }
-        if (isFacingLeft)
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            if (isFacingLeft)
             {
-                Debug.Log("Facing Right");
-                isFacingLeft = false;
-                isFacingRight = true;
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = rightSprite;
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
+                    isFacingLeft = false;
+                    isFacingRight = true;
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = rightFireSprite;
+                }
+            }
+        }
+        else if (iceMode)
+        {
+            if (isFacingLeft)
+            {
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
+                    isFacingLeft = false;
+                    isFacingRight = true;
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = rightIceSprite;
+                }
+            }
+            else if (isFacingRight)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                {
+                    isFacingLeft = true;
+                    isFacingRight = false;
+                    //Start of Changing Sprites
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = leftIceSprite;
+                }
+
             }
         }
     }
@@ -120,11 +127,28 @@ public class TemperMovement : MonoBehaviour
             {
                 fireMode = false;
                 iceMode = true;
+                if (isFacingLeft)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = leftIceSprite;
+                }
+                else if (isFacingRight)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = rightIceSprite;
+                }
             }
             else if (iceMode)
             {
                 iceMode = false;
                 fireMode = true;
+                if (isFacingLeft)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = leftFireSprite;
+                }
+                else if (isFacingRight)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = rightFireSprite;
+                }
+
             }
         }
     }
@@ -147,7 +171,6 @@ public class TemperMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("Fire");
                 LaunchFireIceBall();
             }
             CheckDirection();

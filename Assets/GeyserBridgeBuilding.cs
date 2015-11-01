@@ -23,9 +23,10 @@ public class GeyserBridgeBuilding : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
+        print(other.gameObject.name);
         if (isGeyser) //Turn to Bridge
         {
-            if (other.gameObject.name == IceBallRigidbody.gameObject.name) //Ice Hits Geyser
+            if (other.gameObject.name == "Iceball(Clone)") //Ice Hits Geyser
             {
                 print("Turn to Bridge");
                 isGeyser = false;
@@ -36,11 +37,40 @@ public class GeyserBridgeBuilding : MonoBehaviour {
         }
         else if (isBridge) //Melt to Geyser
         {
-            if (other.gameObject.name == FireballRigidbody.gameObject.name) //Fire hits bridge
+            if (other.gameObject.name == "Fireball(Clone)") //Fire hits bridge
             {
                 print("Turn to Geyser");
                 isBridge = true;
                 isGeyser = false;
+                Geyser.gameObject.SetActive(true);
+                Bridge.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        print(other.gameObject.name);
+        if (isGeyser) //Turn to Bridge
+        {
+            if (other.gameObject.name == "Iceball(Clone)") //Ice Hits Geyser
+            {
+                print("Turn to Bridge");
+                isGeyser = false;
+                isBridge = true;
+                Destroy(Geyser);
+                Bridge.gameObject.SetActive(true);
+                Geyser.gameObject.SetActive(false);
+            }
+        }
+        else if (isBridge) //Melt to Geyser
+        {
+            if (other.gameObject.name == "Fireball(Clone)") //Fire hits bridge
+            {
+                print("Turn to Geyser");
+                isBridge = true;
+                isGeyser = false;
+                Destroy(Geyser);
                 Geyser.gameObject.SetActive(true);
                 Bridge.gameObject.SetActive(false);
             }
