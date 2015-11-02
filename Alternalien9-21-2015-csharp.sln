@@ -23,16 +23,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-<<<<<<< HEAD
-																																																																																													GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
 =======
-																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
-=======
-=======
-																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
-=======
+																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> parent of eb6471c... VS Push
+=======
 																																																												GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/master
 		StartupItem = Assembly-CSharp.csproj
