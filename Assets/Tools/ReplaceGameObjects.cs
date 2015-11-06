@@ -26,7 +26,8 @@ public class ReplaceGameObjects : ScriptableWizard
 		foreach (Transform t in Replaces)
 		{
 			GameObject newObject;
-			newObject = (GameObject)EditorUtility.InstantiatePrefab(useGameObject);
+			//newObject = (GameObject)EditorUtility.InstantiatePrefab(useGameObject);
+            newObject = (GameObject)PrefabUtility.InstantiatePrefab(useGameObject);
 			newObject.transform.position = t.position;
 			newObject.transform.rotation = t.rotation;
 			
