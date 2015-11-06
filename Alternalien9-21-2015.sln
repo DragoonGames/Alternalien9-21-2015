@@ -5,8 +5,6 @@ Project("{972B22FD-3F46-C177-B49F-C37190DA15EF}") = "Alternalien9-21-2015", "Ass
 EndProject
 Project("{972B22FD-3F46-C177-B49F-C37190DA15EF}") = "Alternalien9-21-2015", "Assembly-CSharp-Editor.csproj", "{8BACE9BE-B154-4B30-710D-003E3A1C2772}"
 EndProject
-Project("{972B22FD-3F46-C177-B49F-C37190DA15EF}") = "Alternalien9-21-2015", "Assembly-UnityScript.unityproj", "{82521424-E766-2013-38AE-AA0856161EE2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{8BACE9BE-B154-4B30-710D-003E3A1C2772}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BACE9BE-B154-4B30-710D-003E3A1C2772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BACE9BE-B154-4B30-710D-003E3A1C2772}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82521424-E766-2013-38AE-AA0856161EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82521424-E766-2013-38AE-AA0856161EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82521424-E766-2013-38AE-AA0856161EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82521424-E766-2013-38AE-AA0856161EE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																						GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> parent of eb6471c... VS Push
