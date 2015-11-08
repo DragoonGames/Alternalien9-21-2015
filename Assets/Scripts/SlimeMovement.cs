@@ -20,7 +20,7 @@ public class SlimeMovement : MonoBehaviour
 	float move = 0;
 
 	void Start(){
-		SlimeDirection slimeState = SlimeDirection.isNormal;
+
 	}
 	void Jump() {
 		GetComponent<Rigidbody2D>().AddForce (Vector2.up * jumpSpeed);
