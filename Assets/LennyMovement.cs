@@ -113,7 +113,7 @@ public class LennyMovement : MonoBehaviour {
                 StartCoroutine(Jump());
             }
             CheckDirection(speed);
-            if (!released && Input.GetKeyDown(KeyCode.F))
+            if (!released && Input.GetKeyDown(KeyCode.D))
             {
                 Released();
             }

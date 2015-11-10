@@ -11,7 +11,7 @@ public class ControlScript : MonoBehaviour {
 	private int activeAlien = 0;
 	private int alienCap;
 	public GameObject exitGateway;
-
+	public bool firstLevel;
 
     void SetActiveAlien() {
 		foreach(GameObject alien in aliens)
@@ -95,31 +95,32 @@ public class ControlScript : MonoBehaviour {
 		// Early out if we don't have a target
 		if (!target)
 			return;
+		if (!firstLevel) {
+			// Calculate the current rotation angles
+			// wantedRotationAngle = target.eulerAngles.y;
+			float wantedHeight = target.position.y - height;
+			//float currentRotationAngle = transform.eulerAngles.y;
+			float currentHeight = transform.position.y;
 		
-		// Calculate the current rotation angles
-		// wantedRotationAngle = target.eulerAngles.y;
-		float wantedHeight = target.position.y - height;
-		//float currentRotationAngle = transform.eulerAngles.y;
-		float currentHeight = transform.position.y;
+			// Damp the rotation around the y-axis
+			//currentRotationAngle = Mathf.LerpAngle (currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
 		
-		// Damp the rotation around the y-axis
-	    //currentRotationAngle = Mathf.LerpAngle (currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+			// Damp the height
+			currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 		
-		// Damp the height
-		currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+			// Convert the angle into a rotation
+			//Quaternion currentRotation = Quaternion.Euler (0, currentRotationAngle, 0);
 		
-		// Convert the angle into a rotation
-		//Quaternion currentRotation = Quaternion.Euler (0, currentRotationAngle, 0);
+			// Set the position of the camera on the x-z plane to:
+			// distance meters behind the target
+			transform.position = target.position;
+			transform.position -= Vector3.forward * distance;
 		
-		// Set the position of the camera on the x-z plane to:
-		// distance meters behind the target
-		transform.position = target.position;
-		transform.position -= Vector3.forward * distance;
+			// Set the height of the camera
+			transform.position = new Vector3 (transform.position.x, currentHeight, transform.position.z);
 		
-		// Set the height of the camera
-		transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
-		
-		// Always look at the target
-		transform.LookAt (target);
+			// Always look at the target
+			transform.LookAt (target);
+		}
 	}
 }
