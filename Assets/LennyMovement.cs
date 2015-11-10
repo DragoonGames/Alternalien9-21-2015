@@ -17,13 +17,14 @@ public class LennyMovement : MonoBehaviour {
 
     //Variables for powers
     public bool alwaysPickup = false;
-    public GameObject Lenny;
+    //public GameObject Lenny;
     public Transform[] itemTransform;
-    public GameObject objectPlacement;
-    private GameObject replacedObject;
+    int[] itemTransformScalesX;
+    int[] itemTransformScalesY;
     private float inRange;
     private bool triggered;
     private bool released;
+    int index = 0;
 
     void Start()
     {
@@ -32,9 +33,16 @@ public class LennyMovement : MonoBehaviour {
         anim.SetBool("IsFacingLeft", isFacingLeft);
         anim.SetBool("IsFacingRight", isFacingRight);
         */
-        inRange = 5.0f;
-        //inRange = replacedObject.collider2D.
+        inRange = 50.0f;
         triggered = false;
+        itemTransformScalesX = new int[itemTransform.Length];
+        itemTransformScalesY = new int[itemTransform.Length];
+        for (int i = 0; i < itemTransform.Length; i++)
+        {
+            itemTransformScalesX[i] = (int)itemTransform[i].transform.localScale.x;
+            itemTransformScalesY[i] = (int)itemTransform[i].transform.localScale.y;
+        }
+        
     }
     IEnumerator Jump()
     {
@@ -64,7 +72,9 @@ public class LennyMovement : MonoBehaviour {
                 anim.SetBool("IsFacingLeft", isFacingLeft);
                 */
             }
-
+            if (triggered)
+                itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
+            
         }
         if (isFacingLeft)
         {
@@ -81,6 +91,8 @@ public class LennyMovement : MonoBehaviour {
                 anim.SetBool("IsFacingLeft", isFacingLeft);
                 */
             }
+            if (triggered)
+                itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
         }
     }
     void Update()
@@ -101,55 +113,55 @@ public class LennyMovement : MonoBehaviour {
                 StartCoroutine(Jump());
             }
             CheckDirection(speed);
-            /*for (int i = 0; i < jumpGateTriggers.Length; i++)
-            {
-                if (other.gameObject == jumpGateTriggers[i])
-                {
-                    //First section
-                    print(other.gameObject);
-                    maxSpeed = 0;
-                    StartCoroutine(WaitToMove());
-                }
-            }
-            */
-            for (int i = 0; i < itemTransform.Length; i++)
-            {
-                if (Vector3.Distance(itemTransform[i].position, Lenny.transform.position) < inRange)
-                {
-                    print("In Range");
-                    if (!triggered && Input.GetKeyDown(KeyCode.F))
-                        Trigger(i);
-                }
-            }
             if (!released && Input.GetKeyDown(KeyCode.F))
             {
                 Released();
             }
+            for (int i = 0; i < itemTransform.Length; i++)
+            {
+                
+                //itemTransformScalesX[i] = (int)itemTransform[i].transform.localScale.x;
+                //itemTransformScalesY[i] = (int)itemTransform[i].transform.localScale.y;
+                if (Vector3.Distance(itemTransform[i].position, transform.position) < inRange)
+                {
+                    //print("In Range");
+                    //print(itemTransformScalesX[i].ToString());
+                    //print(itemTransformScalesY[i].ToString());
+                    if (!triggered && Input.GetKeyDown(KeyCode.F))
+                    {
+                        index = i;
+                        Trigger();
+                    }
+                }
+            }
         }
     }
-    void Trigger(int index)
+    void Trigger()
     {
+        print("trigger pressed");
         triggered = true;
         released = false;
 
         if (alwaysPickup)
         {
+            print("in if statement");
             //Handle picking the item here (i.e. parent/child move to empty GO
         }
         else
         {
+            print("in else statement");
             //Put display Icon here
             //audioObject.transform.parent = ships[0].transform;
-            itemTransform[index].transform.parent = Lenny.transform;
+            //print(itemTransform[index].transform.localScale);       //Scale is 10 here
+            itemTransform[index].transform.parent = transform;
+            //itemTransform[index].transform.localScale = new Vector3(itemTransformScalesX[index], itemTransformScalesY[index], 0.0f);                                               //Scale turns to 1 here
+            print(transform.localPosition);
+            print(itemTransform[index].transform.localScale);
+            if (isFacingRight)
+                itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
+            else if (isFacingLeft)
+                itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
 
-            Vector3 position1 = objectPlacement.transform.position;
-            Quaternion rotation1 = objectPlacement.transform.rotation;
-            Quaternion rotation2 = objectPlacement.transform.rotation;
-
-            replacedObject.transform.rotation = rotation2;
-
-            //Lenny.transform.position = replacedObject.transform.position;
-            //Lenny.transform.rotation = replacedObject.transform.rotation;
         }
     }
     void Released()
@@ -159,7 +171,8 @@ public class LennyMovement : MonoBehaviour {
 
         if(!alwaysPickup)
         {
-            //Remove display pickup icon here
+            print("Detach");
+            itemTransform[index].transform.parent = null;
         }
     }
     void OnCollisionEnter2D(Collision2D c)
