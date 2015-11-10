@@ -66,6 +66,7 @@
      <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
      <None Include="Assets\Tiled2Unity\Imported\Artic_Wasteland.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\Angry Sun Alpha 2 Level.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Heatstroke Plaza.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Final Arctic Level (Ezlo).tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
@@ -74,6 +75,7 @@
      <None Include="Assets\Tiled2Unity\Imported\SwampAztecRuins.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\Jungle Level Two (Ezlo).tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Collision Test Level.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Final Arctic Level (Ezlo) 2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Artic Level design 1.tiled2unity.xml" />
