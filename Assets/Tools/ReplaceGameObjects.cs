@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿/*using UnityEngine;
+//using UnityEditor;
 using System.Collections;
 // CopyComponents - by Michael L. Croswell for Colorado Game Coders, LLC
 // March 2010
 
-public class ReplaceGameObjects : ScriptableWizard
+public class ReplaceGameObjects //: ScriptableWizard
 {
 	public bool copyValues = true;
 	public GameObject useGameObject;
@@ -15,7 +15,7 @@ public class ReplaceGameObjects : ScriptableWizard
 	
 	static void CreateWizard ()
 	{
-		ScriptableWizard.DisplayWizard("Replace GameObjects", typeof(ReplaceGameObjects), "Replace");
+		//ScriptableWizard.DisplayWizard("Replace GameObjects", typeof(ReplaceGameObjects), "Replace");
 	}
 	
 	void OnWizardCreate ()
@@ -37,3 +37,4 @@ public class ReplaceGameObjects : ScriptableWizard
 		
 	}
 }
+*/
