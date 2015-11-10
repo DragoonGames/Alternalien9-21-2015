@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\JumperMovement.cs" />
      <Compile Include="Assets\Scripts\LeftFacingWall.cs" />
      <Compile Include="Assets\Scripts\LevelUnlock.cs" />
+     <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerPrefsUnlock.cs" />
      <Compile Include="Assets\Scripts\RevisedSlimeMovement.cs" />
