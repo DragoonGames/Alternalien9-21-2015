@@ -14,10 +14,8 @@ public class LennyMovement : MonoBehaviour {
     private float jumpRate = 0.25F;
     public float nextJump = 0.0F;
     public Animator anim;
-
     //Variables for powers
     public bool alwaysPickup = false;
-    //public GameObject Lenny;
     public Transform[] itemTransform;
     int[] itemTransformScalesX;
     int[] itemTransformScalesY;
@@ -35,14 +33,6 @@ public class LennyMovement : MonoBehaviour {
         */
         inRange = 50.0f;
         triggered = false;
-        itemTransformScalesX = new int[itemTransform.Length];
-        itemTransformScalesY = new int[itemTransform.Length];
-        for (int i = 0; i < itemTransform.Length; i++)
-        {
-            itemTransformScalesX[i] = (int)itemTransform[i].transform.localScale.x;
-            itemTransformScalesY[i] = (int)itemTransform[i].transform.localScale.y;
-        }
-        
     }
     IEnumerator Jump()
     {
@@ -113,26 +103,31 @@ public class LennyMovement : MonoBehaviour {
                 StartCoroutine(Jump());
             }
             CheckDirection(speed);
-            if (!released && Input.GetKeyDown(KeyCode.D))
+            if (!released && Input.GetKeyDown(KeyCode.C))
             {
                 Released();
             }
             for (int i = 0; i < itemTransform.Length; i++)
             {
                 
-                //itemTransformScalesX[i] = (int)itemTransform[i].transform.localScale.x;
-                //itemTransformScalesY[i] = (int)itemTransform[i].transform.localScale.y;
                 if (Vector3.Distance(itemTransform[i].position, transform.position) < inRange)
                 {
-                    //print("In Range");
-                    //print(itemTransformScalesX[i].ToString());
-                    //print(itemTransformScalesY[i].ToString());
                     if (!triggered && Input.GetKeyDown(KeyCode.F))
                     {
                         index = i;
                         Trigger();
                     }
                 }
+            }
+            //MoveChild();
+            if (Input.GetKey(KeyCode.UpArrow) && triggered)
+            {
+                //Rigidbody2D itemMass = itemTransform[index].GetComponent<Rigidbody2D>();
+                //itemMass.mass = 0;
+                //itemMass.gravityScale = 0;
+                //itemTransform[index].transform.Translate(0, 2, 0);
+                //move = Input.GetAxis("Vertical");
+                itemTransform[index].Translate(0, 1, 0);
             }
         }
     }
@@ -151,17 +146,20 @@ public class LennyMovement : MonoBehaviour {
         {
             print("in else statement");
             //Put display Icon here
-            //audioObject.transform.parent = ships[0].transform;
-            //print(itemTransform[index].transform.localScale);       //Scale is 10 here
             itemTransform[index].transform.parent = transform;
-            //itemTransform[index].transform.localScale = new Vector3(itemTransformScalesX[index], itemTransformScalesY[index], 0.0f);                                               //Scale turns to 1 here
             print(transform.localPosition);
             print(itemTransform[index].transform.localScale);
-            if (isFacingRight)
+            Rigidbody2D itemRigid = itemTransform[index].GetComponent<Rigidbody2D>();
+            Destroy(itemRigid);
+            /*if (isFacingRight)
+            {
                 itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
+            }
             else if (isFacingLeft)
+            {
                 itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
-
+            }
+            */
         }
     }
     void Released()
@@ -171,13 +169,12 @@ public class LennyMovement : MonoBehaviour {
 
         if(!alwaysPickup)
         {
-            print("Detach");
-            itemTransform[index].transform.parent = null;
+            if (isFacingLeft)
+            {
+                print("Detach");
+                itemTransform[index].transform.parent = null;
+            }
         }
-    }
-    void OnCollisionEnter2D(Collision2D c)
-    {
-
     }
     void SetActive()
     {
@@ -186,5 +183,23 @@ public class LennyMovement : MonoBehaviour {
     void SetInactive()
     {
         isActive = false;
+    }
+    void MoveChild()
+    {
+        if (triggered) //Child attached to parent
+        {
+            print("In MoveChild()");
+            /*float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            itemTransform[index].GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal * maxSpeed, vertical * maxSpeed);
+            */
+            Rigidbody2D LennyMass = transform.GetComponent<Rigidbody2D>();
+            LennyMass.gravityScale = 0;
+            LennyMass.mass = 0;
+            Rigidbody2D itemMass = itemTransform[index].GetComponent<Rigidbody2D>();
+            itemMass.mass = 0;
+            itemMass.gravityScale = 0;
+            itemTransform[index].transform.Translate(0, 2, 0);
+        }
     }
 }
