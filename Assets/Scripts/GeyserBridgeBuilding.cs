@@ -40,15 +40,15 @@ public class GeyserBridgeBuilding : MonoBehaviour {
             if (other.gameObject.name == "Fireball(Clone)") //Fire hits bridge
             {
                 print("Turn to Geyser");
-                isBridge = true;
-                isGeyser = false;
+                isBridge = false;
+                isGeyser = true;
                 Geyser.gameObject.SetActive(true);
                 Bridge.gameObject.SetActive(false);
             }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         print(other.gameObject.name);
         if (isGeyser) //Turn to Bridge
@@ -76,4 +76,5 @@ public class GeyserBridgeBuilding : MonoBehaviour {
             }
         }
     }
+    */
 }

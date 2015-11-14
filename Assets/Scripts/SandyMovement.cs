@@ -114,6 +114,13 @@ public class SandyMovement : MonoBehaviour {
         triggered = false;
         released = true;
     }
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "isCardKey")
+        {
+            Destroy(c.gameObject);
+        }
+    }
     void SetActive()
     {
         isActive = true;

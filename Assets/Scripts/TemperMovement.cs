@@ -17,17 +17,41 @@ public class TemperMovement : MonoBehaviour
     bool isFacingLeft = false;
     bool fireMode = true;
     bool iceMode = false;
+    bool isGrounded = true;
+
+    private float jumpRate = 0.25F;
+    public float nextJump = 5.0F;
 
     public Sprite leftFireSprite, rightFireSprite;
     public Sprite leftIceSprite, rightIceSprite;
-    void Jump()
-    {
-		//GetComponent<Rigidbody2D>().AddForce(Vector3.right * 35 + Vector3.up * 35);
-		print ("Jump");
-		GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.right * 150 + Vector3.up * 150);
-		//fireClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
-    }
 
+    Rigidbody2D temperRigid;
+
+    void Start()
+    {
+        temperRigid = GetComponent<Rigidbody2D>();
+    }
+    IEnumerator Jump()
+    {
+        //isGrounded = false;
+        print(temperRigid.gravityScale);
+        //anim.SetBool("IsGrounded", isGrounded);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+        temperRigid.gravityScale += 5;
+        yield return new WaitForSeconds(nextJump);
+
+        StartCoroutine(StopJumping());
+        print(isGrounded);
+        //isGrounded = true;
+        //anim.SetBool("IsGrounded", isGrounded);
+    }
+    IEnumerator StopJumping()
+    {
+        isGrounded = false;
+        temperRigid.gravityScale = 15;
+        yield return new WaitForSeconds(0.5f);
+        isGrounded = true;
+    }
     void LaunchFireIceBall()
     {
         if (fireMode)
@@ -36,7 +60,7 @@ public class TemperMovement : MonoBehaviour
             {
                 Rigidbody2D fireClone;
                 fireClone = Instantiate(fireballRigid, transform.position, transform.rotation) as Rigidbody2D;
-                fireClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
+                fireClone.velocity = transform.TransformDirection(Vector3.right * 120 + Vector3.up * 35);
 
                 Destroy(fireClone.gameObject, 15.0f);
             }
@@ -44,7 +68,7 @@ public class TemperMovement : MonoBehaviour
             {
                 Rigidbody2D fireClone;
                 fireClone = Instantiate(fireballRigid, transform.position, transform.rotation) as Rigidbody2D;
-                fireClone.velocity = transform.TransformDirection(Vector3.left * 35 + Vector3.up * 35);
+                fireClone.velocity = transform.TransformDirection(Vector3.left * 120 + Vector3.up * 35);
 
                 Destroy(fireClone.gameObject, 15.0f);
             }
@@ -55,7 +79,7 @@ public class TemperMovement : MonoBehaviour
             {
                 Rigidbody2D iceClone;
                 iceClone = Instantiate(iceballRigid, transform.position, transform.rotation) as Rigidbody2D;
-                iceClone.velocity = transform.TransformDirection(Vector3.right * 35 + Vector3.up * 35);
+                iceClone.velocity = transform.TransformDirection(Vector3.right * 120 + Vector3.up * 35);
 
                 Destroy(iceClone.gameObject, 15.0f);
             }
@@ -63,7 +87,7 @@ public class TemperMovement : MonoBehaviour
             {
                 Rigidbody2D iceClone;
                 iceClone = Instantiate(iceballRigid, transform.position, transform.rotation) as Rigidbody2D;
-                iceClone.velocity = transform.TransformDirection(Vector3.left * 35 + Vector3.up * 35);
+                iceClone.velocity = transform.TransformDirection(Vector3.left * 120 + Vector3.up * 35);
 
                 Destroy(iceClone.gameObject, 15.0f);
             }
@@ -152,29 +176,32 @@ public class TemperMovement : MonoBehaviour
             }
         }
     }
-
     void Update()
     {
         if (isActive)
         {
-            /*float move = Input.GetAxis("Horizontal");
+            float move = Input.GetAxis("Horizontal");
+            float speed = (move * maxSpeed);
+            //anim.SetFloat("speed", speed);
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-			*/
 
-			float horizontal = Input.GetAxis ("Horizontal");
-			float vertical = Input.GetAxis ("Vertical");
-			
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (horizontal * maxSpeed, vertical * maxSpeed);
-
-            if (Input.GetButtonDown("Jump"))
-                Jump();
-
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                StartCoroutine(Jump());
+            }
             if (Input.GetKeyDown(KeyCode.F))
             {
                 LaunchFireIceBall();
             }
             CheckDirection();
             CheckTemperature();
+        }
+    }
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "isCardKey")
+        {
+            Destroy(c.gameObject);
         }
     }
     void SetActive()

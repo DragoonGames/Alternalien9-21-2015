@@ -48,9 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
-     <Compile Include="Assets\LennyMovement.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\AddJumper.cs" />
+     <Compile Include="Assets\Scripts\AddTemper.cs" />
+     <Compile Include="Assets\Scripts\BridgeMaking.cs" />
      <Compile Include="Assets\Scripts\CameraTracker.cs" />
      <Compile Include="Assets\Scripts\CeilingWalls.cs" />
      <Compile Include="Assets\Scripts\ClearPrefs.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\JumpKill.cs" />
      <Compile Include="Assets\Scripts\JumperMovement.cs" />
      <Compile Include="Assets\Scripts\LeftFacingWall.cs" />
+     <Compile Include="Assets\Scripts\LennyMovement.cs" />
      <Compile Include="Assets\Scripts\LevelUnlock.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\PistonDrops.cs" />
@@ -85,6 +87,7 @@
      <Compile Include="Assets\Scripts\SlimeMovement.cs" />
      <Compile Include="Assets\Scripts\SmoothFollowCSharp.cs" />
      <Compile Include="Assets\Scripts\SwingVine.cs" />
+     <Compile Include="Assets\Scripts\TemperMelt.cs" />
      <Compile Include="Assets\Scripts\TemperMovement.cs" />
      <Compile Include="Assets\Scripts\TextBoxVisibility.cs" />
      <Compile Include="Assets\Scripts\TextVisibility.cs" />

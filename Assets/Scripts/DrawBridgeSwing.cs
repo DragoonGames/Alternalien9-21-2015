@@ -3,12 +3,12 @@ using System.Collections;
 
 public class DrawBridgeSwing : MonoBehaviour {
 	public float DbRotation = 45.0f;
-	public bool swingDown;
-	public IEnumerator drawBridge;
+    public bool swingDown = false;
+	//public IEnumerator drawBridge;
 
 	void Start(){
 		DbRotation -= 45.0f;
-		transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, DbRotation);
+		//transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, DbRotation);
 	}
 	
 	void Update(){

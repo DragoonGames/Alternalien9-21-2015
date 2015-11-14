@@ -9,7 +9,7 @@ public class JumperMovement : MonoBehaviour {
     public float maxSpeed = 10f;
     public float jumpSpeed = 100f;
     private bool isActive = false;
-    bool isGrounded = false;
+    bool isGrounded = true;
     bool isJumpingOne = false;
     bool isJumpingTwo = false;
 
@@ -17,13 +17,13 @@ public class JumperMovement : MonoBehaviour {
     public float nextJump = 0.0F;
     public float secondJump = 3.0F;
 
-    public Animator anim;
+    //public Animator anim;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.SetBool("IsFacingLeft", isFacingLeft);
-        anim.SetBool("IsFacingRight", isFacingRight);
+        //anim = GetComponent<Animator>();
+        //anim.SetBool("IsFacingLeft", isFacingLeft);
+        //anim.SetBool("IsFacingRight", isFacingRight);
     }
     IEnumerator Jump()
     {
@@ -35,6 +35,7 @@ public class JumperMovement : MonoBehaviour {
 
             yield return new WaitForSeconds(nextJump);
             isJumpingOne = false;
+            //isGrounded = true;
         }
         if (isGrounded)
         {
@@ -48,39 +49,38 @@ public class JumperMovement : MonoBehaviour {
             yield return new WaitForSeconds(secondJump);
             isGrounded = true;
         }
-        
     }
     void CheckDirection(float moveSpeed)
     {
         if (isFacingRight)
         {
-            anim.SetBool("IsFacingRight", isFacingRight);
-            anim.SetBool("IsFacingLeft", isFacingLeft);
+            //anim.SetBool("IsFacingRight", isFacingRight);
+            //anim.SetBool("IsFacingLeft", isFacingLeft);
 
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 isFacingLeft = true;
                 isFacingRight = false;
                 //Start of Changing Sprites
-                anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
+                //anim.SetFloat("speed", moveSpeed);
+                //anim.SetBool("IsFacingRight", isFacingRight);
+                //anim.SetBool("IsFacingLeft", isFacingLeft);
             }
 
         }
         if (isFacingLeft)
         {
-            anim.SetBool("IsFacingLeft", isFacingLeft);
-            anim.SetBool("IsFacingRight", isFacingRight);
+            //anim.SetBool("IsFacingLeft", isFacingLeft);
+            //anim.SetBool("IsFacingRight", isFacingRight);
 
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 isFacingLeft = false;
                 isFacingRight = true;
                 //Start of Changing Sprites
-                anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
+                //anim.SetFloat("speed", moveSpeed);
+                //anim.SetBool("IsFacingRight", isFacingRight);
+                //anim.SetBool("IsFacingLeft", isFacingLeft);
             }
         }
     }
@@ -91,7 +91,7 @@ public class JumperMovement : MonoBehaviour {
             //CheckDirection(speed);
             float move = Input.GetAxis("Horizontal");
             float speed = (move * maxSpeed);
-            anim.SetFloat("speed", speed);
+            //anim.SetFloat("speed", speed);
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
             CheckDirection(speed);
@@ -99,8 +99,8 @@ public class JumperMovement : MonoBehaviour {
             //Calls jump if button pressed, and is Grounded
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //print("Update Jump");
-                 StartCoroutine(Jump());
+                print("Update Jump");
+                StartCoroutine(Jump());
             }
             CheckDirection(speed);
         }

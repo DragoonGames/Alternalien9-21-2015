@@ -15,7 +15,8 @@ public class SceneLoader : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		win = true;
+        if (other.gameObject.tag == "Player")
+		    win = true;
 	}
 	
 	void OnGUI()

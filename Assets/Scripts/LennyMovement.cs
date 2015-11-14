@@ -176,6 +176,13 @@ public class LennyMovement : MonoBehaviour {
             }
         }
     }
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        if (c.gameObject.tag == "isCardKey")
+        {
+            Destroy(c.gameObject);
+        }
+    }
     void SetActive()
     {
         isActive = true;
