@@ -99,6 +99,7 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
      <Compile Include="Assets\Tools\ReplaceGameObjects.cs" />
+     <Compile Include="Assets\pistonMovement.cs" />
      <None Include="Assets\Tiled2Unity\Imported\2nd_floor.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Jungle Playground.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\First Desert Level (Ian).tiled2unity.xml" />
