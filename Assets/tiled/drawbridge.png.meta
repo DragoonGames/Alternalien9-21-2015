@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 6bcce61ed8f949347a0c724914516a34
-timeCreated: 1444052816
-licenseType: Pro
+timeCreated: 1447546541
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: drawbridge_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,25 +31,36 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  allowsAlphaSplitting: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  alignment: 8
+  spritePivot: {x: .898422062, y: .112097226}
+  spriteBorder: {x: 16, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: drawbridge_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 43
+        height: 43
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
