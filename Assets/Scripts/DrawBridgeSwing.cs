@@ -3,8 +3,7 @@ using System.Collections;
 
 public class DrawBridgeSwing : MonoBehaviour {
 	public float DbRotation = 45.0f;
-	public bool swingDown;
-	public IEnumerator drawBridge;
+    public bool swingDown = false;
 
 	void Start(){
 		DbRotation -= 45.0f;
