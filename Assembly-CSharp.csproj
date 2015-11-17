@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SlimeMovement.cs" />
      <Compile Include="Assets\Scripts\SmoothFollowCSharp.cs" />
+     <Compile Include="Assets\Scripts\SumoMovement.cs" />
      <Compile Include="Assets\Scripts\SwingVine.cs" />
      <Compile Include="Assets\Scripts\TemperMelt.cs" />
      <Compile Include="Assets\Scripts\TemperMovement.cs" />
