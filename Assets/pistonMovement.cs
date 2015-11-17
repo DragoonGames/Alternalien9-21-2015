@@ -6,8 +6,8 @@ public class pistonMovement : MonoBehaviour {
 	IEnumerator pistonSwitch;
 
 	void Start(){
-		pistonSwitch = pistonMove ();
-		StartCoroutine (pistonSwitch);
+		//pistonSwitch = pistonMove ();
+		StartCoroutine (pistonMove());
 	}
 
 	// Update is called once per frame

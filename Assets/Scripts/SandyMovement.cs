@@ -20,6 +20,9 @@ public class SandyMovement : MonoBehaviour {
     public float timeToScale = 0.001f;
     private float sandyTimeScale = 1f;
 
+	//PistonDrops pistonDropStuff;
+	public GameObject[] pistons;
+
     void Start()
     {
         /*anim = GetComponent<Animator>();
@@ -29,6 +32,9 @@ public class SandyMovement : MonoBehaviour {
         */
         triggered = false;
         Time.timeScale = 1;
+	//	pistonDropStuff = GameObject.Find("pistons").GetComponent<pistonDropStuff>();
+		pistons = GameObject.FindGameObjectsWithTag ("Piston");
+
     }
     IEnumerator Jump()
     {
@@ -78,6 +84,7 @@ public class SandyMovement : MonoBehaviour {
     }
     void Update()
     {
+
         if (isActive)
         {
             //CheckDirection(speed);
@@ -105,8 +112,11 @@ public class SandyMovement : MonoBehaviour {
         print("trigger pressed");
         triggered = true;
         released = false;
-
-        Time.timeScale = timeToScale;
+    //    Time.timeScale = timeToScale;
+		for (int i = 0; i < pistons.Length; i++)
+		{
+			pistons [i].GetComponent<PistonDrops> ().pistonSpeed = 0.0005f;
+		}
         //Put display Icon here
     }
     void Released()
