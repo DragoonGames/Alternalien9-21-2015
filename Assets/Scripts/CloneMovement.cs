@@ -13,22 +13,22 @@ public class CloneMovement : MonoBehaviour {
     private float jumpRate = 0.25F;
     public float nextJump = 0.0F;
 
-    //public Animator anim;
+    public Animator anim;
     public Transform[] itemTransform;
     public Sprite CloneCopyCat;
     public Sprite OriginalClone;
     public float inRange;
+    bool isUsingPower = false;
     private bool triggered;
     private bool released;
     int index = 0;
 
     void Start()
     {
-        /*anim = GetComponent<Animator>();
-        anim.SetBool("IsGrounded", isGrounded);
-        anim.SetBool("IsFacingLeft", isFacingLeft);
-        anim.SetBool("IsFacingRight", isFacingRight);
-        */
+        anim = GetComponent<Animator>();
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isFacingRight", isFacingRight);
+        anim.SetBool("isUsingPower", isUsingPower);
         inRange = 10.0f;
         triggered = false;
         OriginalClone = transform.GetComponent<SpriteRenderer>().sprite;
@@ -36,47 +36,41 @@ public class CloneMovement : MonoBehaviour {
     IEnumerator Jump()
     {
         isGrounded = false;
-        //anim.SetBool("IsGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGrounded);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
 
         yield return new WaitForSeconds(nextJump);
 
         isGrounded = true;
-        //anim.SetBool("IsGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGrounded);
     }
     void CheckDirection(float moveSpeed)
     {
         if (isFacingRight)
         {
-            //anim.SetBool("IsFacingRight", isFacingRight);
-            //anim.SetBool("IsFacingLeft", isFacingLeft);
+            anim.SetBool("isFacingRight", isFacingRight);
 
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 isFacingLeft = true;
                 isFacingRight = false;
                 //Start of Changing Sprites
-                /*anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
-                */
+                anim.SetFloat("speed", moveSpeed);
+                anim.SetBool("isFacingRight", isFacingRight);
             }
 
         }
         if (isFacingLeft)
         {
-            //anim.SetBool("IsFacingLeft", isFacingLeft);
-            //anim.SetBool("IsFacingRight", isFacingRight);
+            anim.SetBool("isFacingRight", isFacingRight);
 
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 isFacingLeft = false;
                 isFacingRight = true;
                 //Start of Changing Sprites
-                /*anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
-                */
+                anim.SetFloat("speed", moveSpeed);
+                anim.SetBool("isFacingRight", isFacingRight);
             }
         }
     }
@@ -87,7 +81,7 @@ public class CloneMovement : MonoBehaviour {
             //CheckDirection(speed);
             float move = Input.GetAxis("Horizontal");
             float speed = (move * maxSpeed);
-            //anim.SetFloat("speed", speed);
+            anim.SetFloat("speed", speed);
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
             CheckDirection(speed);
@@ -100,6 +94,7 @@ public class CloneMovement : MonoBehaviour {
             CheckDirection(speed);
             if (!released && Input.GetKeyDown(KeyCode.C))
             {
+                isUsingPower = false;
                 Released();
             }
             for (int i = 0; i < itemTransform.Length; i++)
@@ -117,11 +112,10 @@ public class CloneMovement : MonoBehaviour {
     }
     void Trigger()
     {
-        print("trigger pressed");
         triggered = true;
         released = false;
-
-        print("in else statement");
+        isUsingPower = true;
+        anim.SetBool("isUsingPower", isUsingPower);
         //Put display Icon here
         CloneCopyCat = itemTransform[index].GetComponent<SpriteRenderer>().sprite;
         gameObject.GetComponent<SpriteRenderer>().sprite = CloneCopyCat;
@@ -131,6 +125,7 @@ public class CloneMovement : MonoBehaviour {
         triggered = false;
         released = true;
 
+        anim.SetBool("isUsingPower", isUsingPower);
         gameObject.GetComponent<SpriteRenderer>().sprite = OriginalClone;
     }
     void OnCollisionEnter2D(Collision2D c)
