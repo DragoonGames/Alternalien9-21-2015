@@ -92,10 +92,16 @@ public class CloneMovement : MonoBehaviour {
                 StartCoroutine(Jump());
             }
             CheckDirection(speed);
-            if (!released && Input.GetKeyDown(KeyCode.C))
+            if (triggered && Input.GetKeyDown(KeyCode.C))
             {
                 isUsingPower = false;
                 Released();
+            }
+            if (Input.GetKeyDown(KeyCode.F) && !triggered)
+            {
+                isUsingPower = true;
+                anim.SetBool("isUsingPower", isUsingPower);
+                triggered = true;
             }
             for (int i = 0; i < itemTransform.Length; i++)
             {
@@ -103,6 +109,8 @@ public class CloneMovement : MonoBehaviour {
                 {
                     if (!triggered && Input.GetKeyDown(KeyCode.F))
                     {
+                        isUsingPower = true;
+                        anim.SetBool("isUsingPower", isUsingPower);
                         index = i;
                         Trigger();
                     }
