@@ -93,9 +93,12 @@ public class SandyMovement : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 isUsingPower = true;
+				pistonSavedSpeeds = new float[pistons.Length];
                 for (int i = 0; i < pistons.Length; i++)
                 {
+					print (pistons[i].GetComponent<PistonDrops>().pistonSpeed);
                     pistonSavedSpeeds[i] = pistons[i].GetComponent<PistonDrops>().pistonSpeed;
+					pistons[i].GetComponent<PistonDrops>().pistonSpeed = .1F;
                 }
                 Trigger();
             }
@@ -129,7 +132,7 @@ public class SandyMovement : MonoBehaviour {
         sandyPowerSound.Stop();
         for (int i = 0; i < pistons.Length; i++)
         {
-            pistons[i].GetComponent<PistonDrops>().pistonSpeed = 1.0f;
+			pistons[i].GetComponent<PistonDrops>().pistonSpeed = pistonSavedSpeeds[i];
         }
     }
     void OnCollisionEnter2D(Collision2D c)
