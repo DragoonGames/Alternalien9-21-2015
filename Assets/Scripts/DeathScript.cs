@@ -15,7 +15,7 @@ public class DeathScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        print(deathPossible);
 	}
     void OnTriggerEnter2D(Collider2D other)
     {

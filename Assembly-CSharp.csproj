@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Angry_Sun.cs" />
+     <Compile Include="Assets\DesertDrawBridge.cs" />
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\Scripts\AddAlien.cs" />
@@ -102,6 +103,7 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
      <Compile Include="Assets\Tools\ReplaceGameObjects.cs" />
+     <Compile Include="Assets\climbVine.cs" />
      <Compile Include="Assets\pistonMovement.cs" />
      <None Include="Assets\Tiled2Unity\Imported\2nd_floor.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Jungle Playground.tiled2unity.xml" />
