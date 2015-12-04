@@ -15,7 +15,6 @@ public class DeathScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(deathPossible);
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,7 +26,6 @@ public class DeathScript : MonoBehaviour {
 
                 //Show Pause screen that displays death.
                 //Maybe include a timer for any animations for death
-                print("Death");
 
                 Application.LoadLevel(currentLevel);
             }
