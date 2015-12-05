@@ -24,7 +24,10 @@ public class SandyMovement : MonoBehaviour {
 	//PistonDrops pistonDropStuff;
 	public GameObject[] pistons;
     float[] pistonSavedSpeeds;
-    AudioSource sandyPowerSound;
+    AudioSource myAudioSource;
+    public AudioClip sandyPower;
+    public AudioClip keycardPickup;
+    Rigidbody2D myRigid;
 
     void Start()
     {
@@ -32,10 +35,11 @@ public class SandyMovement : MonoBehaviour {
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isFacingRight", isFacingRight);
         anim.SetBool("isUsingPower", isUsingPower);
-        sandyPowerSound = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
         triggered = false;
         Time.timeScale = 1;
 		pistons = GameObject.FindGameObjectsWithTag ("Piston");
+        myRigid = GetComponent<Rigidbody2D>();
     }
     IEnumerator Jump()
     {
@@ -114,9 +118,11 @@ public class SandyMovement : MonoBehaviour {
         print("trigger pressed");
         triggered = true;
         released = false;
-        sandyPowerSound.Play();
+        myAudioSource.Stop();
+        myAudioSource.clip = sandyPower;
+        myAudioSource.Play();
         anim.SetBool("isUsingPower", isUsingPower);
-    //    Time.timeScale = timeToScale;
+        //Time.timeScale = timeToScale;
 		for (int i = 0; i < pistons.Length; i++)
 		{
 			pistons [i].GetComponent<PistonDrops> ().pistonSpeed = 0.005f;
@@ -127,9 +133,8 @@ public class SandyMovement : MonoBehaviour {
     {
         triggered = false;
         released = true;
-        sandyPowerSound.Play();
+        myAudioSource.Stop();
         anim.SetBool("isUsingPower", isUsingPower);
-        sandyPowerSound.Stop();
         for (int i = 0; i < pistons.Length; i++)
         {
 			pistons[i].GetComponent<PistonDrops>().pistonSpeed = pistonSavedSpeeds[i];
@@ -139,15 +144,21 @@ public class SandyMovement : MonoBehaviour {
     {
         if (c.gameObject.tag == "isCardKey")
         {
+            myAudioSource.Stop();
+            myAudioSource.clip = keycardPickup;
+            myAudioSource.Play();
             Destroy(c.gameObject);
         }
     }
     void SetActive()
     {
         isActive = true;
+        myRigid.constraints = RigidbodyConstraints2D.None;
+        myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void SetInactive()
     {
         isActive = false;
+        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 }

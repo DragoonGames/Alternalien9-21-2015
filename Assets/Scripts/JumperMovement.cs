@@ -18,18 +18,25 @@ public class JumperMovement : MonoBehaviour {
     public float secondJump = 3.0F;
 
     //public Animator anim;
-    AudioSource jumperSound;
+    AudioSource myAudioSource;
+    public AudioClip sandyPower;
+    public AudioClip jumpersound;
+    public AudioClip keycardPickup;
+    Rigidbody2D myRigid;
 
     void Start()
     {
         //anim = GetComponent<Animator>();
         //anim.SetBool("IsFacingLeft", isFacingLeft);
         //anim.SetBool("IsFacingRight", isFacingRight);
-        jumperSound = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
+        myRigid = GetComponent<Rigidbody2D>();
     }
     IEnumerator Jump()
     {
-        jumperSound.Play();
+        myAudioSource.Stop();
+        myAudioSource.clip = jumpersound;
+        myAudioSource.Play();
         if (!isGrounded && isJumpingOne) //DoubleJump
         {
             print("Jump 2");
@@ -112,15 +119,21 @@ public class JumperMovement : MonoBehaviour {
     {
         if (c.gameObject.tag == "isCardKey")
         {
+            myAudioSource.Stop();
+            myAudioSource.clip = keycardPickup;
+            myAudioSource.Play();
             Destroy(c.gameObject);
         }
     }
     void SetActive()
     {
         isActive = true;
+        myRigid.constraints = RigidbodyConstraints2D.None;
+        myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void SetInactive()
     {
         isActive = false;
+        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 }

@@ -11,6 +11,7 @@ public class LennyMovement : MonoBehaviour {
     private bool isActive = false;
     private bool isVine = false;
     bool isGrounded = true;
+    bool isUsingPower = false;
 
     private float jumpRate = 0.25F;
     public float nextJump = 0.0F;
@@ -20,48 +21,51 @@ public class LennyMovement : MonoBehaviour {
     public Transform[] itemTransform;
     int[] itemTransformScalesX;
     int[] itemTransformScalesY;
+
     private float inRange;
     private bool triggered;
     private bool released;
     int index = 0;
 
+    AudioSource myAudioSource;
+    public AudioClip keycardPickup;
+    Rigidbody2D myRigid;
+
     void Start()
     {
-        /*anim = GetComponent<Animator>();
-        anim.SetBool("IsGrounded", isGrounded);
-        anim.SetBool("IsFacingLeft", isFacingLeft);
-        anim.SetBool("IsFacingRight", isFacingRight);
-        */
+        anim = GetComponent<Animator>();
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isFacingRight", isFacingRight);
+        anim.SetBool("isUsingPower", isUsingPower);
+        myAudioSource = GetComponent<AudioSource>();
+        myRigid = GetComponent<Rigidbody2D>();
         inRange = 50.0f;
         triggered = false;
     }
     IEnumerator Jump()
     {
         isGrounded = false;
-        //anim.SetBool("IsGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGrounded);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
 
         yield return new WaitForSeconds(nextJump);
 
         isGrounded = true;
-        //anim.SetBool("IsGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGrounded);
     }
     void CheckDirection(float moveSpeed)
     {
         if (isFacingRight)
         {
-            //anim.SetBool("IsFacingRight", isFacingRight);
-            //anim.SetBool("IsFacingLeft", isFacingLeft);
+            anim.SetBool("isFacingRight", isFacingRight);
 
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             {
                 isFacingLeft = true;
                 isFacingRight = false;
                 //Start of Changing Sprites
-                /*anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
-                */
+                anim.SetFloat("speed", moveSpeed);
+                anim.SetBool("isFacingRight", isFacingRight);
             }
             if (triggered)
                 itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
@@ -69,18 +73,15 @@ public class LennyMovement : MonoBehaviour {
         }
         if (isFacingLeft)
         {
-            //anim.SetBool("IsFacingLeft", isFacingLeft);
-            //anim.SetBool("IsFacingRight", isFacingRight);
+            anim.SetBool("isFacingRight", isFacingRight);
 
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
                 isFacingLeft = false;
                 isFacingRight = true;
                 //Start of Changing Sprites
-                /*anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("IsFacingRight", isFacingRight);
-                anim.SetBool("IsFacingLeft", isFacingLeft);
-                */
+                anim.SetFloat("speed", moveSpeed);
+                anim.SetBool("isFacingRight", isFacingRight);
             }
             if (triggered)
                 itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
@@ -93,7 +94,7 @@ public class LennyMovement : MonoBehaviour {
             //CheckDirection(speed);
             float move = Input.GetAxis("Horizontal");
             float speed = (move * maxSpeed);
-            //anim.SetFloat("speed", speed);
+            anim.SetFloat("speed", speed);
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
             if (isVine)
             {
@@ -151,6 +152,7 @@ public class LennyMovement : MonoBehaviour {
         {
             print("in else statement");
             //Put display Icon here
+            anim.SetBool("isUsingPower", isUsingPower);
             itemTransform[index].transform.parent = transform;
             print(transform.localPosition);
             print(itemTransform[index].transform.localScale);
@@ -177,6 +179,7 @@ public class LennyMovement : MonoBehaviour {
             if (isFacingLeft)
             {
                 print("Detach");
+                anim.SetBool("isUsingPower", isUsingPower);
                 itemTransform[index].transform.parent = null;
             }
         }
@@ -185,6 +188,9 @@ public class LennyMovement : MonoBehaviour {
     {
         if (c.gameObject.tag == "isCardKey")
         {
+            myAudioSource.Stop();
+            myAudioSource.clip = keycardPickup;
+            myAudioSource.Play();
             Destroy(c.gameObject);
         }
     }
@@ -198,10 +204,13 @@ public class LennyMovement : MonoBehaviour {
     void SetActive()
     {
         isActive = true;
+        myRigid.constraints = RigidbodyConstraints2D.None;
+        myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void SetInactive()
     {
         isActive = false;
+        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     void MoveChild()
     {

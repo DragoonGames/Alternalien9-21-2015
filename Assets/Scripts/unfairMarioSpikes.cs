@@ -3,6 +3,8 @@ using System.Collections;
 
 public class unfairMarioSpikes : MonoBehaviour {
 
+    public GameObject trigger;
+    public GameObject destroyableBlock;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,4 +14,11 @@ public class unfairMarioSpikes : MonoBehaviour {
 	void Update () {
 	
 	}
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            Destroy(destroyableBlock);
+        }
+    }
 }
