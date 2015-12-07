@@ -46,14 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Angry_Sun.cs" />
-     <Compile Include="Assets\DesertDrawBridge.cs" />
      <Compile Include="Assets\Elevator\Elevator.cs" />
      <Compile Include="Assets\Elevator\ElevatorTrigger.cs" />
      <Compile Include="Assets\Scripts\AddAlien.cs" />
      <Compile Include="Assets\Scripts\AddCloud.cs" />
      <Compile Include="Assets\Scripts\AddJumper.cs" />
      <Compile Include="Assets\Scripts\AddTemper.cs" />
+     <Compile Include="Assets\Scripts\Angry_Sun.cs" />
      <Compile Include="Assets\Scripts\BridgeMaking.cs" />
      <Compile Include="Assets\Scripts\CameraTracker.cs" />
      <Compile Include="Assets\Scripts\CeilingWalls.cs" />
@@ -68,6 +67,7 @@
      <Compile Include="Assets\Scripts\CrushKill.cs" />
      <Compile Include="Assets\Scripts\CrushMovement.cs" />
      <Compile Include="Assets\Scripts\DeathScript.cs" />
+     <Compile Include="Assets\Scripts\DesertDrawBridge.cs" />
      <Compile Include="Assets\Scripts\DrawBridgeSwing.cs" />
      <Compile Include="Assets\Scripts\DropStalagmites.cs" />
      <Compile Include="Assets\Scripts\ExitScript.cs" />
@@ -98,13 +98,14 @@
      <Compile Include="Assets\Scripts\TextVisibility.cs" />
      <Compile Include="Assets\Scripts\WinScript.cs" />
      <Compile Include="Assets\Scripts\mainGUI.cs" />
+     <Compile Include="Assets\Scripts\pistonMovement.cs" />
+     <Compile Include="Assets\Scripts\unfairMarioSpikes.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
      <Compile Include="Assets\Tools\ReplaceGameObjects.cs" />
      <Compile Include="Assets\climbVine.cs" />
-     <Compile Include="Assets\pistonMovement.cs" />
      <None Include="Assets\Tiled2Unity\Imported\2nd_floor.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Jungle Playground.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\First Desert Level (Ian).tiled2unity.xml" />
