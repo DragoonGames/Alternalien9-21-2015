@@ -2,22 +2,32 @@
 using System.Collections;
 
 public class CloudMovement : MonoBehaviour {
-	public float maxSpeed = 10f;
+	public float maxSpeed;
+	public float attackPower;
+
+	bool isTriggered = false;
 	private bool isActive = false;
-    private float jumpRate = 0.25F;
 
     AudioSource myAudioSource;
     public AudioClip wattsonPower;
     public AudioClip keycardPickup;
     Rigidbody2D myRigid;
 
+	bool isFacingRight = true;
+	bool isUsingPower = false;
+	float speed;
+	Animator anim;
+
     void Start()
     {
-        /*anim = GetComponent<Animator>();
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetBool("isFacingRight", isFacingRight);
-        anim.SetBool("isUsingPower", isUsingPower);
-        */
+		if (maxSpeed < 10)
+			maxSpeed = 50;
+		if (attackPower < 0)
+			attackPower = 2;
+        anim = GetComponent<Animator>();
+        anim.SetBool("IsFacingR", isFacingRight);
+        anim.SetBool("IsUsingPower", isUsingPower);
+		//anim.SetFloat ("Speed", maxSpeed);
         myAudioSource = GetComponent<AudioSource>();
         myRigid = GetComponent<Rigidbody2D>();
     }
@@ -25,13 +35,64 @@ public class CloudMovement : MonoBehaviour {
 		if (isActive) {
 			float horizontal = Input.GetAxis ("Horizontal");
 			float vertical = Input.GetAxis ("Vertical");
-
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (horizontal * maxSpeed, vertical * maxSpeed);
+			if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+			{
+				speed = (horizontal * maxSpeed);
+			}
+			else if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+			{
+				speed = (vertical * maxSpeed);
+			}
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horizontal * maxSpeed, vertical * maxSpeed);
+			if (isTriggered && Input.GetKeyDown(KeyCode.C))
+			{
+				StartCoroutine(Power());
+			}
+			if (!isTriggered && Input.GetKeyDown(KeyCode.F))
+			{
+				StartCoroutine(Power());
+			}
+			CheckDirection(maxSpeed);
+			print(maxSpeed);
 		}
 	}
+
+	void CheckDirection(float moveSpeed)
+	{
+		if (isFacingRight)
+		{
+			anim.SetBool("IsFacingR", isFacingRight);
+			anim.SetFloat("Speed", maxSpeed);
+			if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+			{
+				isFacingRight = false;
+				//Start of Changing Sprites
+				anim.SetFloat("Speed", maxSpeed);
+				anim.SetBool("IsFacingR", isFacingRight);
+			}
+		}
+		if (!isFacingRight)
+		{
+			anim.SetBool("IsFacingR", isFacingRight);
+			anim.SetFloat("Speed", maxSpeed);
+			if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+			{
+				isFacingRight = true;
+				//Start of Changing Sprites
+				anim.SetFloat("Speed", maxSpeed);
+				anim.SetBool("IsFacingR", isFacingRight);
+			}
+		}
+	}
+
     IEnumerator Power()
     {
-        yield return new WaitForSeconds(0);
+		isUsingPower = true;
+		anim.SetBool("IsUsingPower", isUsingPower);
+        yield return new WaitForSeconds(1);
+
+		isUsingPower = false;
+		anim.SetBool("IsUsingPower", isUsingPower);
     }
     void OnCollisionEnter2D(Collision2D c)
     {
