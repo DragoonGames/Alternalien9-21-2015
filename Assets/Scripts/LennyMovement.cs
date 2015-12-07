@@ -17,7 +17,6 @@ public class LennyMovement : MonoBehaviour {
     public float nextJump = 0.0F;
     public Animator anim;
     //Variables for powers
-    public bool alwaysPickup = false;
     public Transform[] itemTransform;
     int[] itemTransformScalesX;
     int[] itemTransformScalesY;
@@ -55,38 +54,40 @@ public class LennyMovement : MonoBehaviour {
     }
     void CheckDirection(float moveSpeed)
     {
-        if (isFacingRight)
-        {
-            anim.SetBool("isFacingRight", isFacingRight);
+		if (isFacingRight) {
+			anim.SetBool ("isFacingRight", isFacingRight);
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-            {
-                isFacingLeft = true;
-                isFacingRight = false;
-                //Start of Changing Sprites
-                anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("isFacingRight", isFacingRight);
-            }
-            if (triggered)
-                itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
+			if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) {
+				isFacingLeft = true;
+				isFacingRight = false;
+				//Start of Changing Sprites
+				anim.SetFloat ("speed", moveSpeed);
+				anim.SetBool ("isFacingRight", isFacingRight);
+
+			}
+			//if (triggered)
+				//itemTransform [index].localPosition = new Vector3 (1.5f, 0.5f, 0.0f);
             
-        }
-        if (isFacingLeft)
-        {
-            anim.SetBool("isFacingRight", isFacingRight);
+		}
+		if (isFacingLeft) {
+			anim.SetBool ("isFacingRight", isFacingRight);
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-            {
-                isFacingLeft = false;
-                isFacingRight = true;
-                //Start of Changing Sprites
-                anim.SetFloat("speed", moveSpeed);
-                anim.SetBool("isFacingRight", isFacingRight);
-            }
-            if (triggered)
-                itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
-        }
-    }
+			if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) {
+				isFacingLeft = false;
+				isFacingRight = true;
+				//Start of Changing Sprites
+				anim.SetFloat ("speed", moveSpeed);
+				anim.SetBool ("isFacingRight", isFacingRight);
+				if(triggered)
+				{
+					itemTransform[index].Translate(0.5f,0f,0f);
+					print("Move Child");
+				}
+			}
+			//if (triggered)
+			//itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
+		}
+	}
     void Update()
     {
         if (isActive)
@@ -95,7 +96,13 @@ public class LennyMovement : MonoBehaviour {
             float move = Input.GetAxis("Horizontal");
             float speed = (move * maxSpeed);
             anim.SetFloat("speed", speed);
+
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			if(triggered)
+			{
+				itemTransform[index].GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+				print("Move Child");
+			}
             if (isVine)
             {
                 float vertical = Input.GetAxis("Vertical");
@@ -133,8 +140,17 @@ public class LennyMovement : MonoBehaviour {
                 //itemMass.gravityScale = 0;
                 //itemTransform[index].transform.Translate(0, 2, 0);
                 //move = Input.GetAxis("Vertical");
-                itemTransform[index].Translate(0, 1, 0);
+                itemTransform[index].Translate(0f, 1f, 0f);
             }
+			if (Input.GetKey(KeyCode.DownArrow) && triggered)
+			{
+				//Rigidbody2D itemMass = itemTransform[index].GetComponent<Rigidbody2D>();
+				//itemMass.mass = 0;
+				//itemMass.gravityScale = 0;
+				//itemTransform[index].transform.Translate(0, 2, 0);
+				//move = Input.GetAxis("Vertical");
+				itemTransform[index].Translate(0f, -1f, 0f);
+			}
         }
     }
     void Trigger()
@@ -143,45 +159,36 @@ public class LennyMovement : MonoBehaviour {
         triggered = true;
         released = false;
 
-        if (alwaysPickup)
+        print("in else statement");
+        //Put display Icon here
+        anim.SetBool("isUsingPower", isUsingPower);
+        itemTransform[index].transform.parent = transform;
+
+        print(transform.localPosition);
+        print(itemTransform[index].transform.localScale);
+
+        Rigidbody2D itemRigid = itemTransform[index].GetComponent<Rigidbody2D>();
+        //Destroy(itemRigid);
+        /*if (isFacingRight)
         {
-            print("in if statement");
-            //Handle picking the item here (i.e. parent/child move to empty GO
+            itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
         }
-        else
+        else if (isFacingLeft)
         {
-            print("in else statement");
-            //Put display Icon here
-            anim.SetBool("isUsingPower", isUsingPower);
-            itemTransform[index].transform.parent = transform;
-            print(transform.localPosition);
-            print(itemTransform[index].transform.localScale);
-            Rigidbody2D itemRigid = itemTransform[index].GetComponent<Rigidbody2D>();
-            Destroy(itemRigid);
-            /*if (isFacingRight)
-            {
-                itemTransform[index].localPosition = new Vector3(1.5f, 0.5f, 0.0f);
-            }
-            else if (isFacingLeft)
-            {
-                itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
-            }
-            */
+            itemTransform[index].localPosition = new Vector3(-1.5f, 0.5f, 0.0f);
         }
+        */
     }
     void Released()
     {
         triggered = false;
         released = true;
 
-        if(!alwaysPickup)
+        if (isFacingLeft)
         {
-            if (isFacingLeft)
-            {
-                print("Detach");
-                anim.SetBool("isUsingPower", isUsingPower);
-                itemTransform[index].transform.parent = null;
-            }
+            print("Detach");
+            anim.SetBool("isUsingPower", isUsingPower);
+            itemTransform[index].transform.parent = null;
         }
     }
     void OnCollisionEnter2D(Collision2D c)
@@ -204,13 +211,13 @@ public class LennyMovement : MonoBehaviour {
     void SetActive()
     {
         isActive = true;
-        myRigid.constraints = RigidbodyConstraints2D.None;
-        myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //myRigid.constraints = RigidbodyConstraints2D.None;
+        //myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void SetInactive()
     {
         isActive = false;
-        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
+        //myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     void MoveChild()
     {

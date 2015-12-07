@@ -148,6 +148,11 @@ public class SandyMovement : MonoBehaviour {
             myAudioSource.clip = keycardPickup;
             myAudioSource.Play();
             Destroy(c.gameObject);
+			if (GameObject.Find("Sand_Bridge"))
+			{
+				GameObject.Find("Sand_Bridge").GetComponent<DesertDrawBridge>().count++;
+
+			}
         }
     }
     void SetActive()
@@ -159,6 +164,5 @@ public class SandyMovement : MonoBehaviour {
     void SetInactive()
     {
         isActive = false;
-        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 }
