@@ -28,6 +28,7 @@ public class CloneMovement : MonoBehaviour {
 	private Vector3 itemTransformScale;
     public AudioClip keycardPickup;
     Rigidbody2D myRigid;
+    Rigidbody2D itemRigid;
 
     public float inRange;
     bool isUsingPower = false;
@@ -138,7 +139,14 @@ public class CloneMovement : MonoBehaviour {
 							print("Button pressed");
                             CloneCopyCat = itemTransform[index].GetComponent<SpriteRenderer>().sprite;
 							itemTransformScale = itemTransform[index].GetComponent<Transform>().localScale;
-                            
+                            if (!itemTransform[index].GetComponent<Rigidbody2D>())
+                            {
+                               itemRigid = itemTransform[index].gameObject.AddComponent<Rigidbody2D>();
+                            }
+                            else
+                            {
+                                itemRigid = itemTransform[index].GetComponent<Rigidbody2D>();
+                            }
                             //Destroy(originalCollider);
                             index = i;
                             Trigger();
@@ -179,6 +187,10 @@ public class CloneMovement : MonoBehaviour {
 
         originalCollider.size = storedColliderSize;
         originalCollider.offset = storedColliderOffset;
+        if (itemTransform[index].gameObject.tag != "Player")
+        {
+            itemRigid.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
     void OnCollisionEnter2D(Collision2D c)
     {
@@ -188,17 +200,20 @@ public class CloneMovement : MonoBehaviour {
             myAudioSource.clip = keycardPickup;
             myAudioSource.Play();
             Destroy(c.gameObject);
+            if (GameObject.Find("Sand_Bridge"))
+            {
+                GameObject.Find("Sand_Bridge").GetComponent<DesertDrawBridge>().count++;
+
+            }
         }
     }
     void SetActive()
     {
         isActive = true;
-        myRigid.constraints = RigidbodyConstraints2D.None;
         myRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void SetInactive()
     {
         isActive = false;
-        myRigid.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
 }

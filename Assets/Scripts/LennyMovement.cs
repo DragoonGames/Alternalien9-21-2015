@@ -168,6 +168,7 @@ public class LennyMovement : MonoBehaviour {
         print(itemTransform[index].transform.localScale);
 
         Rigidbody2D itemRigid = itemTransform[index].GetComponent<Rigidbody2D>();
+        itemRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
         //Destroy(itemRigid);
         /*if (isFacingRight)
         {
@@ -179,7 +180,7 @@ public class LennyMovement : MonoBehaviour {
         }
         */
     }
-    void Released()
+    void Released() 
     {
         triggered = false;
         released = true;
@@ -199,6 +200,11 @@ public class LennyMovement : MonoBehaviour {
             myAudioSource.clip = keycardPickup;
             myAudioSource.Play();
             Destroy(c.gameObject);
+            if (GameObject.Find("Sand_Bridge"))
+            {
+                GameObject.Find("Sand_Bridge").GetComponent<DesertDrawBridge>().count++;
+
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other)
